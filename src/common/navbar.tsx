@@ -21,13 +21,17 @@ const pages = [
   "Jobs",
   "AutomateAssist",
   "Subscription",
+  "Sign In",
+  "Sign Up",
 ]
-const routes: {[key:string]: string;} = {
-  Application_Tracker: "tracker",
+const routes: { [key: string]: string } = {
+  "Application Tracker": "applications",
   ResumePro: "resume",
   Jobs: "jobs",
   AutomateAssist: "assist",
   Subscription: "subscription",
+  "Sign In": "signin",
+  "Sign Up": "signup",
 }
 const settings = ["Profile", "Account", "Dashboard", "Logout"]
 
@@ -56,16 +60,15 @@ export default function NavBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={RouterLink}
+            to={'./'}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Nunito Sans",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
@@ -114,17 +117,16 @@ export default function NavBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={RouterLink}
+            to={'./'}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: "Nunito Sans",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
@@ -133,7 +135,7 @@ export default function NavBar() {
           >
             JobFit.AI
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", justifyContent: 'center' } }}>
             {pages.map(page => (
               <Button
                 key={page}

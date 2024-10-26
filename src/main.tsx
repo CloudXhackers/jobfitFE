@@ -4,6 +4,8 @@ import { Provider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import App from "./App"
 import HeroPage from "./pages/heroPage"
+import SignUpPage from "./pages/signUpPage"
+import SignInPage from "./pages/signInPage"
 import UserPage from "./pages/userPage"
 import JobsPage from "./pages/jobsPage"
 import ApplicationTrackerPage from "./pages/applicationTrackerPage"
@@ -25,6 +27,8 @@ if (container) {
       errorElement: <div>an error occured in the BrowserRouter</div>,
       children: [
         { index: true, element: <HeroPage /> },
+        { path: "signin", element: <SignInPage /> },
+        { path: "signup", element: <SignUpPage /> },
         { path: "user", element: <UserPage /> },
         { path: "jobs", element: <JobsPage /> },
         { path: "subscription", element: <SubscriptionPage /> },
