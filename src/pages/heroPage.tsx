@@ -5,7 +5,7 @@ import { BaseButton, StartButton } from "../common/buttonStyles"
 export default function HeroPage() {
   return (
     <Container>
-      <Box component="div" sx={{ py: 5 }}>
+      <Box component="div" sx={{ py: 1 }}>
         <BaseButton>
           <Typography variant="inherit">
             Unlock Your Career Potential with AI

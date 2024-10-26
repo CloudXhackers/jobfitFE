@@ -57,11 +57,11 @@ export default function NavBar() {
   }
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: "white" }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters >
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component={RouterLink}
             to={'./'}
@@ -69,15 +69,13 @@ export default function NavBar() {
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "Nunito Sans",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
+              fontWeight: 900,
+              color: "black",
               textDecoration: "none",
             }}
           >
-            JobFit.AI
+            Job<Typography color="primary" variant='inherit'>Fit.</Typography>AI
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -85,7 +83,6 @@ export default function NavBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -103,7 +100,7 @@ export default function NavBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
+              sx={{ display: { xs: "block", md: "none", } }}
             >
               {pages.map(page => (
                 <MenuItem
@@ -118,7 +115,7 @@ export default function NavBar() {
             </Menu>
           </Box>
           <Typography
-            variant="h5"
+            variant="h4"
             noWrap
             component={RouterLink}
             to={'./'}
@@ -127,13 +124,12 @@ export default function NavBar() {
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
               fontFamily: "Nunito Sans",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
+              fontWeight: 900,
+              color: "black",
               textDecoration: "none",
             }}
           >
-            JobFit.AI
+            Job<Typography color="primary" variant="inherit">Fit.</Typography>AI
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", justifyContent: 'center' } }}>
             {pages.map(page => (
@@ -142,7 +138,7 @@ export default function NavBar() {
                 component={RouterLink}
                 to={`/${routes[page]}`}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}
               </Button>
