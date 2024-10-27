@@ -13,7 +13,7 @@ import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
-import AdbIcon from "@mui/icons-material/Adb"
+import { StartButton } from "./buttonStyles"
 
 const pages = [
   "Application Tracker",
@@ -21,8 +21,6 @@ const pages = [
   "Jobs",
   "AutomateAssist",
   "Subscription",
-  "Sign In",
-  "Sign Up",
 ]
 const routes: { [key: string]: string } = {
   "Application Tracker": "applications",
@@ -30,8 +28,6 @@ const routes: { [key: string]: string } = {
   Jobs: "jobs",
   AutomateAssist: "assist",
   Subscription: "subscription",
-  "Sign In": "signin",
-  "Sign Up": "signup",
 }
 const settings = ["Profile", "Account", "Dashboard", "Logout"]
 
@@ -59,12 +55,13 @@ export default function NavBar() {
   return (
     <AppBar position="static" sx={{ bgcolor: "white" }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters >
+        <Toolbar disableGutters>
+          {/* ------------- DESKTOP LOGO ------------ */}
           <Typography
             variant="h4"
             noWrap
             component={RouterLink}
-            to={'./'}
+            to={"./"}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -74,8 +71,13 @@ export default function NavBar() {
               textDecoration: "none",
             }}
           >
-            Job<Typography color="primary" variant='inherit'>Fit.</Typography>AI
+            Job
+            <Typography color="primary" variant="inherit">
+              Fit.
+            </Typography>
+            AI
           </Typography>
+          {/* ----------- MOBILE HAMBURGER ---------- */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -100,7 +102,7 @@ export default function NavBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none", } }}
+              sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map(page => (
                 <MenuItem
@@ -114,11 +116,12 @@ export default function NavBar() {
               ))}
             </Menu>
           </Box>
+          {/* ------------- MOBILE LOGO ------------- */}
           <Typography
             variant="h4"
             noWrap
             component={RouterLink}
-            to={'./'}
+            to={"./"}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -129,9 +132,19 @@ export default function NavBar() {
               textDecoration: "none",
             }}
           >
-            Job<Typography color="primary" variant="inherit">Fit.</Typography>AI
+            Job
+            <Typography color="primary" variant="inherit">
+              Fit.
+            </Typography>
+            AI
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", justifyContent: 'center' } }}>
+          {/* ------------ DESKTOP LINKS ------------ */}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex", justifyContent: "center" },
+            }}
+          >
             {pages.map(page => (
               <Button
                 key={page}
@@ -144,7 +157,19 @@ export default function NavBar() {
               </Button>
             ))}
           </Box>
+          {/* --------------- PROFILE --------------- */}
           <Box sx={{ flexGrow: 0 }}>
+            <Button
+              key="signin"
+              component={RouterLink}
+              to="signin"
+              sx={{ color: "black" }}
+            >
+              Sign In
+            </Button>
+            <Box component={RouterLink} to="signup">
+              <StartButton key="signup"><Typography sx={{ fontSize: '.9rem' }}>Get Started</Typography></StartButton>
+            </Box>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
