@@ -13,7 +13,7 @@ import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
-import { StartButton } from "./buttonStyles"
+import { StartButton } from "../../../common/buttonStyles"
 
 const pages = [
   "Application Tracker",
@@ -168,7 +168,9 @@ export default function NavBar() {
               Sign In
             </Button>
             <Box component={RouterLink} to="signup">
-              <StartButton key="signup"><Typography sx={{ fontSize: '.9rem' }}>Get Started</Typography></StartButton>
+              <StartButton key="signup">
+                <Typography sx={{ fontSize: ".9rem" }}>Get Started</Typography>
+              </StartButton>
             </Box>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom"
-import NavBar from "./common/navbar"
+import NavBar from "./components/Public/Navbar-Public"
 import "./App.css"
-import { createTheme, ThemeProvider } from "@mui/material"
-
+import { createTheme, ThemeProvider, Typography } from "@mui/material"
+import Routers from "./Routers/Routers"
 const theme = createTheme({
   typography: {
     fontFamily: ["Nunito Sans", "Inter"].join(","),
@@ -11,16 +11,14 @@ const theme = createTheme({
       textTransform: "none",
     },
   },
-  components: {
-  },
+  components: {},
 })
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <NavBar />
-        <Outlet />
+        <Routers />
       </div>
     </ThemeProvider>
   )
