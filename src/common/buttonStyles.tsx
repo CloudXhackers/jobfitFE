@@ -23,4 +23,5 @@ export const StartButton = styled(BaseButton)<ButtonProps>(({ theme }) => `
   border: none;
   &:hover {
     background-color: ${theme.palette.primary.light}
+  }
 `);
