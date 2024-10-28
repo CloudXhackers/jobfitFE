@@ -37,7 +37,7 @@ export default function MainSection() {
           sx={{ display: { xs: "none", md: "flex", width: "30%" } }}
         />
         <Box sx={{ p: 5, display: "flex", flexGrow: 0 }}>
-          <BaseButton sx={{ flexShrink: 0 }}>Learn More</BaseButton>
+          <BaseButton sx={{ flexShrink: 0, mr: 2 }}>Learn More</BaseButton>
           <StartButton sx={{ flexShrink: 0 }}>Start Your Journey</StartButton>
         </Box>
         <Box
