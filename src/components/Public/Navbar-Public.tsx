@@ -1,18 +1,12 @@
 import { Link as RouterLink } from "react-router-dom"
 
-import * as React from "react"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
-import Toolbar from "@mui/material/Toolbar"
-import IconButton from "@mui/material/IconButton"
-import Typography from "@mui/material/Typography"
-import Menu from "@mui/material/Menu"
-import MenuIcon from "@mui/icons-material/Menu"
-import Container from "@mui/material/Container"
-import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
-import Tooltip from "@mui/material/Tooltip"
-import MenuItem from "@mui/material/MenuItem"
+import Container from "@mui/material/Container"
+import Toolbar from "@mui/material/Toolbar"
+import Typography from "@mui/material/Typography"
+import * as React from "react"
 import { StartButton } from "../../common/buttonStyles"
 
 const pages = [
@@ -78,7 +72,7 @@ export default function NavBar() {
                 to={`/${routes[page]}`}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "black" }}
-                class="text-gray-800 text-[0.9rem] font-medium"
+                className="text-gray-800 text-[0.9rem] font-medium"
               >
                 {page}
               </Button>
@@ -90,13 +84,13 @@ export default function NavBar() {
               key="signin"
               component={RouterLink}
               to="signin"
-              class="text-gray-800 text-[0.9rem] font-semibold"
+              className="text-gray-800 text-[0.9rem] font-semibold"
             >
               Sign In
             </Button>
             <Box component={RouterLink} to="signup">
               <StartButton key="signup">
-                <Typography class="text-white text-base font-semibold">
+                <Typography className="text-white text-base font-semibold">
                   Get Started
                 </Typography>
               </StartButton>

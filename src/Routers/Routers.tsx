@@ -1,6 +1,4 @@
-import React from "react"
 import { Route, Routes } from "react-router-dom"
-import NavBar from "../components/Public/Navbar-Public"
 import PublicRoute from "./PublicRoute"
 import UserRoute from "./UserRoute"
 
@@ -11,7 +9,7 @@ const Routers = () => {
     <div>
       <Routes>
         <Route
-          path="/"
+          path="/*"
           element={isAuthenticated ? <UserRoute /> : <PublicRoute />}
         />
       </Routes>

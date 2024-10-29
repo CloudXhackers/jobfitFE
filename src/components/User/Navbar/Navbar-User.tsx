@@ -31,7 +31,7 @@ const routes: { [key: string]: string } = {
 }
 const settings = ["Profile", "Account", "Dashboard", "Logout"]
 
-export default function NavBar() {
+export default function UserNavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null,
@@ -77,7 +77,7 @@ export default function NavBar() {
             </Typography>
             AI
           </Typography>
-          {/* ----------- MOBILE HAMBURGER ---------- */}
+          {/* ----------- MOBILE HAMBURGER LINKS ---------- */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
