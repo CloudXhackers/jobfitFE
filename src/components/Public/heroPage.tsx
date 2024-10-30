@@ -275,9 +275,8 @@ export default function HeroPage() {
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
               }}
+              startIcon={<PlayCircleOutlineIcon />}
             >
-              {" "}
-              <PlayCircleOutlineIcon />
               <Typography className="text-base font-black text-gray-700 pl-2">
                 Watch Our Demo Video
               </Typography>
@@ -351,7 +350,7 @@ export default function HeroPage() {
                   </Typography>
                   <Link
                     href={feature.linkUrl}
-                    variant="body2"
+                    variant="h8"
                     color="primary"
                     className="flex pl-4 font-bold text-blue-600"
                   >

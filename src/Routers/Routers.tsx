@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import PublicRoute from "./PublicRoute"
 import UserRoute from "./UserRoute"
 
-const isAuthenticated = false
+const isAuthenticated = true
 
 const Routers = () => {
   return (
