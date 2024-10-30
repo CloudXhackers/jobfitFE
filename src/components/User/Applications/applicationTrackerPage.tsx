@@ -25,7 +25,7 @@ export default function ApplicationTrackerPage() {
       <Box display="flex" alignItems="center">
         <Typography variant="h6" mr={2}>Filters</Typography>
         {filters.map(filterName => (
-          <Button sx={{ border: '2px dashed #ccc', borderRadius: 8, px:2, mx: 1}}>
+          <Button sx={{ border: '2px dashed #ccc', borderRadius: 8, px:2, mx: 1 }}>
             {filterName}
           </Button>
         ))}
