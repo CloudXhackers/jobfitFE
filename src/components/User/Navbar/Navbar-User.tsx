@@ -23,10 +23,10 @@ const pages = [
   "Subscription",
 ]
 const routes: { [key: string]: string } = {
-  "Application Tracker": "applications",
-  ResumePro: "resume",
+  "Application Tracker": "application-tracker",
+  ResumePro: "resumepro",
   Jobs: "jobs",
-  AutomateAssist: "assist",
+  AutomateAssist: "automate-assist",
   Subscription: "subscription",
 }
 const settings = ["Profile", "Account", "Dashboard", "Logout"]

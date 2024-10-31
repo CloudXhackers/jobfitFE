@@ -1,5 +1,5 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material"
-import ApplicationsList from "./applicationsList"
+import ApplicationsList from "./applicationsTable"
 
 export default function ApplicationTrackerPage() {
   const filters = [
@@ -24,8 +24,8 @@ export default function ApplicationTrackerPage() {
       />
       <Box display="flex" alignItems="center">
         <Typography variant="h6" mr={2}>Filters</Typography>
-        {filters.map(filterName => (
-          <Button sx={{ border: '2px dashed #ccc', borderRadius: 8, px:2, mx: 1 }}>
+        {filters.map((filterName, key) => (
+          <Button key={key} sx={{ border: '2px dashed #ccc', borderRadius: 8, px:2, mx: 1 }}>
             {filterName}
           </Button>
         ))}
