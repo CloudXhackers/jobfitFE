@@ -159,19 +159,6 @@ export default function UserNavBar() {
           </Box>
           {/* --------------- PROFILE --------------- */}
           <Box sx={{ flexGrow: 0 }}>
-            <Button
-              key="signin"
-              component={RouterLink}
-              to="signin"
-              sx={{ color: "black" }}
-            >
-              Sign In
-            </Button>
-            <Box component={RouterLink} to="signup">
-              <StartButton key="signup">
-                <Typography sx={{ fontSize: ".9rem" }}>Get Started</Typography>
-              </StartButton>
-            </Box>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
