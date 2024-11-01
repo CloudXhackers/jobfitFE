@@ -1,7 +1,16 @@
 import { Box } from "@mui/material"
-import type { GridColDef, GridRowsProp } from "@mui/x-data-grid"
-import { DataGrid } from "@mui/x-data-grid"
+import type {
+  GridCallbackDetails,
+  GridColDef,
+  GridRowParams,
+  GridRowSelectionModel,
+  GridRowsProp,
+  MuiEvent,
+} from "@mui/x-data-grid"
+import { DataGrid, GridColumnVisibilityModel } from "@mui/x-data-grid"
 import ApplicationStatusMenu from "./applicationStatusMenu"
+import { useState } from "react"
+import React from "react"
 
 const columns: GridColDef[] = [
   {
@@ -116,12 +125,51 @@ const rows: GridRowsProp = [
 ]
 
 export default function ApplicationsTable() {
+  const [rowSelectionModel, setRowSelectionModel] =
+    useState<GridRowSelectionModel>([])
+  const [columnVisibilityModel, setColumnVisibityModel] =
+    useState<GridColumnVisibilityModel>({})
+
+  const ChangeRowSelectionModel = (
+    newRowSelectionModel: GridRowSelectionModel,
+  ) => {
+    const gridWrapper: HTMLElement = document.getElementById("grid-wrapper")
+    const showJob = () => {
+      gridWrapper.style.width = "40%"
+      setColumnVisibityModel({
+        source: false,
+        resume: false,
+      })
+      console.log('gridWrapper :>> ', gridWrapper);
+      // Show/hide Job component
+      //gridWrapper.appendChild(React.createElement('div', { value: "Job component" }))
+    }
+    
+    const hideJob = () => {
+      gridWrapper.style.width = "100%"
+      setColumnVisibityModel({
+        source: true,
+        resume: true,
+      })
+    }
+
+    newRowSelectionModel[0] ? showJob() : hideJob()
+
+    // show jobDetailsPage
+    // include a 'close' but to reset rowSelectionModel to [] and make table width 100%
+    console.log("newRowSelectionModel :>> ", newRowSelectionModel)
+    setRowSelectionModel(newRowSelectionModel)
+  }
+
   return (
-    <Box py={2} display="flex">
+    <Box id="grid-wrapper" py={2} display="flex">
       <DataGrid
         rows={rows}
         columns={columns}
         disableColumnMenu
+        rowSelectionModel={rowSelectionModel}
+        onRowSelectionModelChange={ChangeRowSelectionModel}
+        columnVisibilityModel={columnVisibilityModel}
         sx={{
           border: 0,
           borderRadius: 8,
