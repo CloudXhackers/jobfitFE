@@ -9,6 +9,7 @@ import HomeWorkIcon from "@mui/icons-material/HomeWork"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import Jobs from "../Jobs/Jobs"
 import ProfileCard from "../ProfileCard/ProfileCard"
+import ProfileCardSummarized from "../ProfileCard/ProfileCardSummarized"
 
 const userData = {
   name: "Praneeth",
@@ -32,7 +33,7 @@ const userData = {
     "Seattle",
     "Remote",
   ],
-  preferredPay: "$120K - $180K",
+  preferredPay: ["$120K - $180K"],
   skills: [
     "Data Science",
     "ML/AI",
@@ -60,6 +61,10 @@ const Home = () => {
   const [profileCardOpen, setProfileCardOpen] = useState(false)
   const time = "9:00 AM PST"
 
+  const handleCard = () => {
+    setProfileCardOpen(prev => !prev)
+  }
+
   return (
     <div className="w-full p-10 mx-auto ">
       <div className="flex-row flex">
@@ -72,7 +77,11 @@ const Home = () => {
         </Typography>
       </div>
 
-      <ProfileCard userData={userData} />
+      {profileCardOpen ? (
+        <ProfileCard userData={userData} handleClose={handleCard} />
+      ) : (
+        <ProfileCardSummarized userData={userData} handleOpen={handleCard} />
+      )}
 
       <Jobs />
     </div>

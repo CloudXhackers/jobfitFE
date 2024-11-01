@@ -170,7 +170,7 @@ const JobCard = ({ job }) => {
           
           <Box class=" bg-red-light ">C</Box>*/}
         </CardContent>
-        <Box className="bg-[#D9D9D9] h-[42px] w-full flex px-6 items-center justify-between border-y-[0.1rem]  border-[#C1C1C0] ">
+        <Box className="bg-[#D9D9D9] h-[42px] w-full flex px-5 items-center justify-between border-y-[0.1rem]  border-[#C1C1C0] ">
           <Button
             variant="contained"
             class="bg-white flex-row flex shadow-none  px-10 py-1 text-[0.6rem] border-[0.1rem] border-gray-400 rounded-full "
