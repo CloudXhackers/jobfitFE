@@ -19,6 +19,7 @@ import AddIcon from "@mui/icons-material/Add"
 import CancelIcon from "@mui/icons-material/Cancel"
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp"
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown"
+
 const useContainerWidth = () => {
   const containerRef = useRef(null)
   const [width, setWidth] = useState(0)
@@ -39,7 +40,7 @@ const useContainerWidth = () => {
   return [containerRef, width]
 }
 
-const ChipSection = ({ title, items = [] }) => {
+const ChipSection = ({ title, items = [], widthdisabled }) => {
   const [containerRef, containerWidth] = useContainerWidth()
   const chipRefs = useRef([])
   const [visibleItems, setVisibleItems] = useState([])
@@ -81,7 +82,7 @@ const ChipSection = ({ title, items = [] }) => {
 
   return (
     <div className="flex items-start space-x-2">
-      <h3 className="text-sm font-semibold text-white/90 w-[30%] whitespace-nowrap">
+      <h3 className={`text-sm font-semibold text-white/90 w-[30%] text-start `}>
         {title}:
       </h3>
       <div
@@ -132,46 +133,46 @@ const ProfileCard = ({ userData, handleOpen }) => {
 
   return (
     <Card class="w-full overflow-hidden mt-2 mb-5 rounded-3xl">
-      <div class="bg-gradient-to-r from-[#27468C] to-[#4780FF] text-white px-6 py-2">
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr,auto,1fr,auto,1fr] gap-1 items-start">
-            <div className="flex-row flex gap-3 align-middle items-center mb-4">
-              <h2 className="text-3xl font-semibold">Hi, {data.name}</h2>
-              <p className="flex-row flex gap-1">
-                <p className="text-white text-sm font-thin">
-                  - Summarizing your
-                </p>
-                <p className="text-white text-sm font-semibold">Requirements</p>
-              </p>
-            </div>
-            <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
-            <ChipSection title="Your Skills" items={data.skills} />
-            <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
-            <ChipSection title="Experience" items={data.experience} />
+      <CardContent class="bg-gradient-to-r from-[#27468C] to-[#4780FF] text-white px-10 pt-6 h-fit">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr,auto,1fr,auto,1fr] gap-1 items-start">
+          <div className="flex-row flex gap-3 align-middle items-center mb-4">
+            <h2 className="text-3xl font-semibold">Hi, {data.name}</h2>
+            <p className="flex-row flex gap-1">
+              <p className="text-white text-sm font-thin">- Summarizing your</p>
+              <p className="text-white text-sm font-semibold">Requirements</p>
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr,auto,1fr,auto,1fr] gap-1 items-start">
-            <ChipSection title="Preferred Job" items={data.preferredJobs} />
-            <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
-            <ChipSection
-              title="Preferred Location"
-              items={data.preferredLocations}
-            />
-            <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
-            <ChipSection
-              title="Preferred Job Type"
-              items={data.preferredJobType}
-            />
-            <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
-          </div>
-          <Button
-            color="white"
-            onClick={handleOpen}
-            className="w-full justify-center align-middle items-center h-[0.6px] pb-0"
-          >
-            <ArrowDropDownIcon />
-          </Button>{" "}
-        </CardContent>
-      </div>
+          <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
+          <ChipSection title="Your Skills" items={data.skills} />
+          <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
+          <ChipSection title="Experience" items={data.experience} />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-[1fr,auto,1fr,auto,1fr] gap-1 items-start">
+          <ChipSection
+            widthdisabled={true}
+            title="Preferred Job"
+            items={data.preferredJobs}
+          />
+          <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
+          <ChipSection
+            title="Preferred Location"
+            items={data.preferredLocations}
+          />
+          <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
+          <ChipSection
+            title="Preferred Job Type"
+            items={data.preferredJobType}
+          />
+          <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
+        </div>
+        <Button
+          color="white"
+          onClick={handleOpen}
+          className="w-full justify-center align-middle items-center h-0 m-0 p-0"
+        >
+          <ArrowDropDownIcon />
+        </Button>{" "}
+      </CardContent>
     </Card>
   )
 }
