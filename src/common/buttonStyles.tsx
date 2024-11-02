@@ -10,8 +10,7 @@ export const BaseButton = styled(Button)`
   border-radius: .75rem;
   border-color: #AD9B9B;
   background-color: #F4F6FF;
-  padding: .5rem 1rem;
-  margin: 1rem;
+  padding: .4rem 1rem;
   &:hover {
     background-color: #e7e7e7
   } 
@@ -23,4 +22,5 @@ export const StartButton = styled(BaseButton)<ButtonProps>(({ theme }) => `
   border: none;
   &:hover {
     background-color: ${theme.palette.primary.light}
+  }
 `);

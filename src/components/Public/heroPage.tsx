@@ -157,7 +157,7 @@ const plans = [
 export default function HeroPage() {
   return (
     <>
-      <Container>
+      <Container className="w-full">
         <Box component="div">
           <BaseButton className="h-[2rem]">
             <Typography variant="inherit" className="text-sm">
@@ -483,7 +483,7 @@ export default function HeroPage() {
       </Container>
       <Container className="h-[100px] w-full ">
         <footer className="bg-[#4379F2] text-white text-left py-10">
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 ">
             {footerItems.map((item, index) => (
               <div key={index}>
                 <h4 className="mb-5 font-bold">{item.title}</h4>
