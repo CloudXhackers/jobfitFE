@@ -1,37 +1,31 @@
-import Container from "@mui/material/Container"
-import { Link as RouterLink } from "react-router-dom"
 import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Button,
-  Grid,
-  Icon,
-  IconButton,
-  Link,
-  Stack,
-  Switch,
-  Typography,
-} from "@mui/material"
-import { BaseButton, StartButton } from "../../common/buttonStyles"
-import LeftImage from "../../images/BgHomePage.jpeg"
-import RightImage from "../../images/ai-research-scientist-abstract-concept-600nw-2368588939.webp"
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline"
-import TypeImg from "../../images/m_image.png"
-import JobSearchIcon from "../../images/container-md.png"
-import ResumeIcon from "../../images/container-md (1).png"
-import LockIcon from "../../images/container-md (2).png"
-import LoveIcon from "../../images/container-md (3).png"
-import {
-  ArrowDownward,
-  ArrowDownwardOutlined,
-  ArrowDropDown,
   AutoAwesome,
   CheckCircle,
   KeyboardArrowDown,
   Star,
 } from "@mui/icons-material"
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline"
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Box,
+  Grid,
+  Link,
+  Stack,
+  Switch,
+  Typography,
+} from "@mui/material"
+import Container from "@mui/material/Container"
+import { Link as RouterLink } from "react-router-dom"
+import { BaseButton, StartButton } from "../../common/buttonStyles"
+import LeftImage from "../../images/BgHomePage.jpeg"
+import RightImage from "../../images/ai-research-scientist-abstract-concept-600nw-2368588939.webp"
+import ResumeIcon from "../../images/container-md (1).png"
+import LockIcon from "../../images/container-md (2).png"
+import LoveIcon from "../../images/container-md (3).png"
+import JobSearchIcon from "../../images/container-md.png"
+import TypeImg from "../../images/m_image.png"
 const footerItems = [
   {
     title: "Features",
@@ -163,10 +157,10 @@ const plans = [
 export default function HeroPage() {
   return (
     <>
-      <Container>
+      <Container className="w-full">
         <Box component="div">
           <BaseButton className="h-[2rem]">
-            <Typography variant="inherit" class="text-sm">
+            <Typography variant="inherit" className="text-sm">
               Unlock Your Career Potential with AI
             </Typography>
             <Typography
@@ -174,7 +168,7 @@ export default function HeroPage() {
               variant="inherit"
               color="primary"
               sx={{ pl: 3 }}
-              class="text-sm font-bold pl-3 text-blue-500"
+              className="text-sm font-bold pl-3 text-blue-500"
             >
               Discover More
             </Typography>
@@ -196,12 +190,12 @@ export default function HeroPage() {
           </Typography>
           <Box sx={{ p: 5 }}>
             <BaseButton>
-              <Typography class="text-base font-black text-gray-700">
+              <Typography className="text-base font-black text-gray-700">
                 Learn More
               </Typography>
             </BaseButton>
             <StartButton>
-              <Typography class="text-lg text-white font-bold">
+              <Typography className="text-lg text-white font-bold">
                 Start Your Journey
               </Typography>
             </StartButton>
@@ -236,7 +230,7 @@ export default function HeroPage() {
       <Typography variant="h4" sx={{ fontWeight: "750", p: 4 }}>
         Transform Your Job Application Experience
       </Typography>
-      <Container class="h-[700px] w-full flex justify-between px-32">
+      <Container className="h-[700px] w-full flex justify-between px-32">
         <Box component="div" className="w-1/2">
           <BaseButton
             className="h-[3rem] flex items-start justify-start text-left"
@@ -247,7 +241,7 @@ export default function HeroPage() {
               p: 1,
             }}
           >
-            <Typography variant="inherit" class="text-base font-bold">
+            <Typography variant="inherit" className="text-base font-bold">
               Unlock Your Career Potential Today!
             </Typography>
           </BaseButton>
@@ -266,7 +260,7 @@ export default function HeroPage() {
             Process with Ease.
           </Typography>
           <Typography
-            class="font-normal text-xl text-left px-4"
+            className="font-normal text-xl text-left px-4"
             sx={{ textAlign: "left", lineHeight: 2 }}
           >
             Navigate the job market effortlessly with our AI-driven <br />
@@ -282,10 +276,9 @@ export default function HeroPage() {
                 justifyContent: "flex-start",
               }}
             >
-              <IconButton class="flex pr-2">
-                <PlayCircleOutlineIcon />
-              </IconButton>
-              <Typography class="text-base font-black text-gray-700">
+              {" "}
+              <PlayCircleOutlineIcon />
+              <Typography className="text-base font-black text-gray-700 pl-2">
                 Watch Our Demo Video
               </Typography>
             </BaseButton>
@@ -307,7 +300,7 @@ export default function HeroPage() {
       >
         Unlock Your Career Potential Today
       </Typography>
-      <Container class="h-[650px]  justify-center text-center items-center ">
+      <Container className="h-[650px]  justify-center text-center items-center ">
         <Grid
           container
           spacing={3}
@@ -360,7 +353,7 @@ export default function HeroPage() {
                     href={feature.linkUrl}
                     variant="body2"
                     color="primary"
-                    class="flex pl-4 font-bold text-blue-600"
+                    className="flex pl-4 font-bold text-blue-600"
                   >
                     {feature.linkText}
                   </Link>
@@ -370,10 +363,10 @@ export default function HeroPage() {
           ))}
         </Grid>
       </Container>
-      <Container class="h-[700px] w-full ">
+      <Container className="h-[700px] w-full ">
         <Typography>Under Construction</Typography>
       </Container>
-      <Container class="h-[700px] w-full ">
+      <Container className="h-[700px] w-full ">
         <Typography variant="h4" sx={{ fontWeight: "750" }}>
           Affordable Plans for Everyone
         </Typography>
@@ -389,12 +382,12 @@ export default function HeroPage() {
             mb={3}
           >
             <Switch defaultChecked />
-            <Typography variant="h8" class="font-semibold">
+            <Typography variant="h6" className="font-semibold">
               Save up to 20% annually!
             </Typography>
           </Stack>
         </Box>
-        <Container class="flex justify-between px-32">
+        <Container className="flex justify-between px-32">
           <Grid container spacing={4}>
             {plans.map((plan, index) => (
               <Grid item xs={12} md={6} key={index}>
@@ -446,8 +439,8 @@ export default function HeroPage() {
                         </Box>
                       ))}
                   </Box>
-                  <BaseButton class="h-[3rem] w-full flex text-center items-center justify-center border-zinc-800 bg-slate-200">
-                    <Typography class="text-base font-bold text-center items-center justify-center">
+                  <BaseButton className="h-[3rem] w-full flex text-center items-center justify-center border-zinc-800 bg-slate-200">
+                    <Typography className="text-base font-bold text-center items-center justify-center">
                       {plan.buttonText}
                     </Typography>
                   </BaseButton>
@@ -457,7 +450,7 @@ export default function HeroPage() {
           </Grid>
         </Container>
       </Container>
-      <Container class="h-[700px] w-full  justify-between px-32">
+      <Container className="h-[700px] w-full  justify-between px-32">
         <Typography variant="h4" sx={{ fontWeight: "750" }}>
           FAQ
         </Typography>
@@ -475,7 +468,7 @@ export default function HeroPage() {
               aria-controls={`panel${index}-content`}
               id={`panel${index}-header`}
             >
-              <Typography class="font-semibold">{item.question}</Typography>
+              <Typography className="font-semibold">{item.question}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography
@@ -489,9 +482,9 @@ export default function HeroPage() {
           </Accordion>
         ))}
       </Container>
-      <Container class="h-[100px] w-full ">
+      <Container className="h-[100px] w-full ">
         <footer className="bg-[#4379F2] text-white text-left py-10">
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 ">
             {footerItems.map((item, index) => (
               <div key={index}>
                 <h4 className="mb-5 font-bold">{item.title}</h4>

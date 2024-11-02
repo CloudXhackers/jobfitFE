@@ -31,7 +31,7 @@ const routes: { [key: string]: string } = {
 }
 const settings = ["Profile", "Account", "Dashboard", "Logout"]
 
-export default function NavBar() {
+export default function UserNavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null,
@@ -77,7 +77,7 @@ export default function NavBar() {
             </Typography>
             AI
           </Typography>
-          {/* ----------- MOBILE HAMBURGER ---------- */}
+          {/* ----------- MOBILE HAMBURGER LINKS ---------- */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -159,19 +159,6 @@ export default function NavBar() {
           </Box>
           {/* --------------- PROFILE --------------- */}
           <Box sx={{ flexGrow: 0 }}>
-            <Button
-              key="signin"
-              component={RouterLink}
-              to="signin"
-              sx={{ color: "black" }}
-            >
-              Sign In
-            </Button>
-            <Box component={RouterLink} to="signup">
-              <StartButton key="signup">
-                <Typography sx={{ fontSize: ".9rem" }}>Get Started</Typography>
-              </StartButton>
-            </Box>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

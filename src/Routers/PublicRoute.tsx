@@ -8,7 +8,7 @@ const PublicRoute = () => {
     <div>
       <NavBar />
       <Routes>
-        <Route path="/" element={<HeroPage />} />
+        <Route path="/*" element={<HeroPage />} />
       </Routes>
     </div>
   )
