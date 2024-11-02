@@ -277,7 +277,7 @@ export default function HeroPage() {
               }}
               startIcon={<PlayCircleOutlineIcon />}
             >
-              <Typography className="text-base font-black text-gray-700 pl-2">
+              <Typography class="text-base font-black text-gray-700 pl-2">
                 Watch Our Demo Video
               </Typography>
             </BaseButton>
