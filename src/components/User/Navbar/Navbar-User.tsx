@@ -29,16 +29,24 @@ const routes: { [key: string]: string } = {
   AutomateAssist: "assist",
   Subscription: "subscription",
 }
-const settings = ["Profile", "Account", "Dashboard", "Logout"]
+const settings = [
+  "View Profile",
+  "Documents",
+  "Help",
+  "Subscription",
+  "Sign Out",
+]
 
 export default function UserNavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null,
   )
+  const [settingMenu, setSettingMenu] = React.useState(null)
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget)
+  const handleOpenMenu = setting => {
+    setSettingMenu(setting)
+    handleCloseUserMenu()
   }
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget)
@@ -111,27 +119,49 @@ export default function UserNavBar() {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: "45px" }}
+              PaperProps={{
+                sx: {
+                  mt: "45px",
+                  width: "200px",
+                  borderRadius: 6, // Use values like 2 to achieve 16px, as MUI uses a scale
+                  backgroundColor: "#D9D9D9",
+                },
+              }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "center",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "center",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
               {settings.map(setting => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: "center" }}>
-                    {setting}
-                  </Typography>
-                </MenuItem>
+                <>
+                  {setting === "Sign Out" && (
+                    <div className="flex justify-center items-center">
+                      <div className="border-t-2 border-[#464741] w-3/4"></div>
+                    </div>
+                  )}
+                  <MenuItem
+                    key={setting}
+                    onClick={setting => handleOpenMenu(setting)}
+                    sx={{
+                      justifyContent: "center",
+                      alignItems: "center",
+                      backgroundColor: "#D9D9D9",
+                    }}
+                  >
+                    <Typography class="text-sm font-medium">
+                      {setting}
+                    </Typography>
+                  </MenuItem>
+                </>
               ))}
             </Menu>
           </Box>
