@@ -38,7 +38,7 @@ export default function NavBar() {
 
   return (
     <AppBar position="static" sx={{ bgcolor: "white" }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="full">
         <Toolbar disableGutters>
           {/* ------------- DESKTOP LOGO ------------ */}
           <Typography
@@ -72,25 +72,25 @@ export default function NavBar() {
                 to={`/${routes[page]}`}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "black" }}
-                className="text-gray-800 text-[0.9rem] font-medium"
+                class="text-gray-800 text-[0.9rem] font-medium px-2"
               >
                 {page}
               </Button>
             ))}
           </Box>
           {/* --------------- PROFILE --------------- */}
-          <Box sx={{ flexGrow: 0 }} className="w-[20%] justify-end">
+          <Box sx={{ flexGrow: 1 }} className="w-[20%] justify-end">
             <Button
               key="signin"
               component={RouterLink}
               to="signin"
-              className="text-gray-800 text-[0.9rem] font-semibold"
+              class="text-gray-800 text-[0.9rem] font-semibold"
             >
               Sign In
             </Button>
             <Box component={RouterLink} to="signup">
               <StartButton key="signup">
-                <Typography className="text-white text-base font-semibold">
+                <Typography class="text-white text-base font-semibold">
                   Get Started
                 </Typography>
               </StartButton>

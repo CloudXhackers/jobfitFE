@@ -13,6 +13,32 @@ import ProfileCardSummarized from "../ProfileCard/ProfileCardSummarized"
 import SearchBox from "../Search/SearchBox"
 import Filters from "../Filters/Filters"
 
+const filterList = {
+  "Job Type": ["Full-time", "Part-time", "Internship"],
+  "Job Title": ["Software Engineer", "ML Engineer", "Data Scientist"],
+  Location: ["California", "Chicago", "Dallas"],
+  "Salary Range": [
+    "< $50K",
+    "$50K-100K",
+    "$100k-150K",
+    "$150k-200K",
+    "$200k-250K",
+    "$250k-300K",
+  ],
+  Sponsorship: ["H1B Sponsor", "No Sponsorship", "L1 Sponsor", "Other Permit"],
+  Company: ["Google", "Microsoft", "Tesla", "Meta"],
+  "Match %": ["0-20%", "20-40%", "40-60%", "60-80%", "80-100%"],
+  "Job Role": [
+    "Fresher",
+    "< 1 Yr Exp.",
+    "< 2 Yr Exp.",
+    "< 3 Yr Exp.",
+    "< 5 Yr Exp.",
+    "< 10 Yr Exp.",
+    "+ 10 Yr Exp.",
+  ],
+}
+
 const userData = {
   name: "Praneeth",
   preferredJobs: [
@@ -78,8 +104,8 @@ const Home = () => {
   const [jobClick, setJobClick] = useState(false)
 
   return (
-    <div className="flex flex-row">
-      <div className={`${jobClick ? "w-[50%]" : "w-full"} p-10 mx-auto`}>
+    <div className="flex flex-row transition-all duration-500 ease-in-out">
+      <div className={`${jobClick ? "w-1/2" : "w-full"} p-10 mx-auto`}>
         <div className="flex-row flex">
           <div className="flex-row flex gap-x-1 bg-[#4379F2] text-white rounded-xl px-5 py-[0.1rem]">
             <Typography class="font-thin">All Jobs are</Typography>
@@ -91,7 +117,7 @@ const Home = () => {
         </div>
         <div
           className={`transition-transform duration-500 ease-in-out transform ${
-            isScaling ? "scale-90" : "scale-100"
+            isScaling ? "scale-95" : "scale-100"
           }`}
         >
           {profileCardOpen ? (
@@ -104,11 +130,11 @@ const Home = () => {
           )}
         </div>
         <SearchBox />
-        <Filters />
-        <Jobs />
+        <Filters filterList={filterList} />
+        <Jobs jobClick={jobClick} />
       </div>
       {jobClick ? (
-        <div className={`${jobClick ? "w-[50%]" : "w-0"} p-10 mx-auto`}></div>
+        <div className={`${jobClick ? "w-1/2" : "w-0"} p-10 mx-auto`}></div>
       ) : (
         <></>
       )}

@@ -53,8 +53,17 @@ export default function UserNavBar() {
   }
 
   return (
-    <AppBar position="static" sx={{ bgcolor: "white" }}>
-      <Container maxWidth="xl">
+    <AppBar
+      position="static"
+      sx={{
+        bgcolor: "white",
+        paddingTop: 0.5,
+        paddingBottom: 0.5,
+        alignItems: "start",
+        justifyContent: "start",
+      }}
+    >
+      <Container maxWidth="full">
         <Toolbar disableGutters>
           {/* ------------- DESKTOP LOGO ------------ */}
           <Typography
@@ -62,6 +71,7 @@ export default function UserNavBar() {
             noWrap
             component={RouterLink}
             to={"./"}
+            className="w-[20%] text-start justify-center"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -77,88 +87,24 @@ export default function UserNavBar() {
             </Typography>
             AI
           </Typography>
-          {/* ----------- MOBILE HAMBURGER LINKS ---------- */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              {pages.map(page => (
-                <MenuItem
-                  key={page}
-                  component={RouterLink}
-                  to={`/${routes[page]}`}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          {/* ------------- MOBILE LOGO ------------- */}
-          <Typography
-            variant="h4"
-            noWrap
-            component={RouterLink}
-            to={"./"}
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "Nunito Sans",
-              fontWeight: 900,
-              color: "black",
-              textDecoration: "none",
-            }}
-          >
-            Job
-            <Typography color="primary" variant="inherit">
-              Fit.
-            </Typography>
-            AI
-          </Typography>
+
           {/* ------------ DESKTOP LINKS ------------ */}
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex", justifyContent: "center" },
-            }}
-          >
+          <Box class="flex justify-start w-[60%] space-x-8 ">
             {pages.map(page => (
               <Button
                 key={page}
                 component={RouterLink}
                 to={`/${routes[page]}`}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
+                sx={{ my: 2, color: "black" }}
+                class="text-gray-800 text-[0.9rem] font-medium px-2"
               >
                 {page}
               </Button>
             ))}
           </Box>
           {/* --------------- PROFILE --------------- */}
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 1 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

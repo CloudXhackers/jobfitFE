@@ -118,12 +118,12 @@ const jobs = [
   // Add more jobs as needed
 ]
 
-const Jobs = () => {
+const Jobs = ({ jobClick }) => {
   return (
     <div className="space-y-8">
       <Grid container spacing={4}>
         {jobs.map(job => (
-          <JobCard job={job} />
+          <JobCard job={job} jobClick={jobClick} />
         ))}
       </Grid>
     </div>

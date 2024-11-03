@@ -41,7 +41,12 @@ const FilterComp = ({ title, contents }) => {
           horizontal: "center",
         }}
         PaperProps={{
-          style: { padding: "8px", borderRadius: "8px", paddingLeft: "12px" },
+          style: {
+            padding: "8px",
+            borderRadius: "8px",
+            paddingLeft: "12px",
+            maxWidth: "200px",
+          },
         }}
       >
         <div className="flex flex-col ">

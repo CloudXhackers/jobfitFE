@@ -23,9 +23,15 @@ import CreateIcon from "@mui/icons-material/Create"
 import ArrowRightIcon from "@mui/icons-material/ArrowRight"
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
 
-const JobCard = ({ job }) => {
+const JobCard = ({ job, jobClick }) => {
   return (
-    <Grid item xs={12} sm={8} md={6} lg={4} xl={3}>
+    <Grid
+      item
+      xs={12}
+      sm={jobClick ? 6 : 4} // Half-width on medium screens if jobClick is true
+      md={jobClick ? 6 : 4}
+      lg={jobClick ? 6 : 3}
+    >
       <Card
         key={job.id}
         class="hover:shadow-lg hover:shadow-gray-600 shadow-gray-400 transition-shadow cursor-pointer rounded-3xl border-[#D8D8D7] border-solid border-[0.06rem] shadow-md w-[366px] h-[190px] overflow-hidden"
