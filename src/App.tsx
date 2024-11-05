@@ -1,4 +1,5 @@
 import { createTheme, ThemeProvider } from "@mui/material"
+import type {} from '@mui/x-data-grid/themeAugmentation';
 import "./App.css"
 import Routers from "./Routers/Routers"
 
@@ -10,7 +11,12 @@ const theme = createTheme({
       textTransform: "none",
     },
   },
-  components: {},
+  mixins: {
+    MuiDataGrid: {
+      // Headers, and top & bottom fixed rows
+      containerBackground: '#4379F2',
+    },
+  },
 })
 
 const App = () => {

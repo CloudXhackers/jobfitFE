@@ -2,11 +2,15 @@ import { Box } from "@mui/material"
 import type {
   GridColDef,
   GridRowSelectionModel,
-  GridRowsProp
-, GridColumnVisibilityModel } from "@mui/x-data-grid"
+  GridRowsProp,
+  GridColumnVisibilityModel,
+  GridRowParams,
+  MuiEvent,
+  GridRowId,
+} from "@mui/x-data-grid"
 import { DataGrid } from "@mui/x-data-grid"
-import { useState } from "react"
-import JobPage from "../../../pages/jobPage"
+import { useEffect, useState } from "react"
+import JobPage from "./applicationPage"
 import ApplicationStatusMenu from "./applicationStatusMenu"
 
 const columns: GridColDef[] = [
@@ -73,6 +77,7 @@ const rows: GridRowsProp = [
     id: 1,
     date: "2024-10-26",
     appNumber: "69",
+    jobId: 1,
     jobRole: "Software Engineer",
     company: "Google",
     source: "LinkedIn",
@@ -83,6 +88,7 @@ const rows: GridRowsProp = [
     id: 2,
     date: "2024-10-26",
     appNumber: "70",
+    jobId: 2,
     jobRole: "Software Engineer",
     company: "Google",
     source: "LinkedIn",
@@ -93,6 +99,7 @@ const rows: GridRowsProp = [
     id: 3,
     date: "2024-10-26",
     appNumber: "80",
+    jobId: 3,
     jobRole: "Software Engineer",
     company: "Google",
     source: "LinkedIn",
@@ -103,6 +110,7 @@ const rows: GridRowsProp = [
     id: 4,
     date: "2024-10-26",
     appNumber: "90",
+    jobId: 4,
     jobRole: "Software Engineer",
     company: "Google",
     source: "LinkedIn",
@@ -113,6 +121,7 @@ const rows: GridRowsProp = [
     id: 5,
     date: "2024-10-26",
     appNumber: "90",
+    jobId: 5,
     jobRole: "Software Engineer",
     company: "Google",
     source: "LinkedIn",
@@ -122,58 +131,50 @@ const rows: GridRowsProp = [
 ]
 
 export default function ApplicationsTable() {
-  const [ showJobPage, setShowJobPage ] = useState(false)
-  const [ rowSelectionModel, setRowSelectionModel ] =
-    useState<GridRowSelectionModel>([])
-  const [ columnVisibilityModel, setColumnVisibityModel ] =
+  const [applications, setApplications] = useState([])
+  const [selected, setSelected] = useState<GridRowId | null>(null)
+  const [columnVisibilityModel, setColumnVisibityModel] =
     useState<GridColumnVisibilityModel>({})
-  const [ jobs, setJobs ] = useState(rows)
 
-  const ChangeRowSelectionModel = (
-    newRowSelectionModel: GridRowSelectionModel,
-  ) => {
-    // select wrapper. fix type casting
-    const gridWrapper: HTMLElement = document.getElementById("grid-wrapper")
-    // define open behavior
-    const openJobPage = () => {
-      // select jobData from state? dataTable? async?
-      setShowJobPage(true)
+  // fetch data on initialization
+  useEffect(() => {
+    setApplications(rows)
+  }, [])
+// resize table when an application is selected
+  useEffect(() => {
+    selected
+      ? setColumnVisibityModel({
+          source: false,
+          resume: false,
+        })
+      : setColumnVisibityModel({
+          source: true,
+          resume: true,
+        })
+  }, [selected])
 
-      //gridWrapper.style.width = "40%" // This is wrong. I want the dataGrid width to be 40% 
-      setColumnVisibityModel({
-        source: false,
-        resume: false,
-      })
-      
-      console.log("gridWrapper :>> ", gridWrapper)
-      // Show/hide Job component
-    }
+  // close jobPage and resize dataGrid when JobPage closeIcon is clicked
+  const handleCloseJobPage = () => {
+    setSelected(null)
+  }
 
-    const closeJobPage = () => {
-      setShowJobPage(false)
-      gridWrapper.style.width = "100%"
-      setColumnVisibityModel({
-        source: true,
-        resume: true,
-      })
-    }
+  // fires when user clicks on a new row
+  // get jobData - pass down jobId in props to be fetched from JobPage
+  // resize dataGrid
+  // show jobPage for seleceted job
 
-    newRowSelectionModel[0] ? openJobPage() : closeJobPage()
-    // show jobDetailsPage
-    // include a 'close' but to reset rowSelectionModel to [] and make table width 100%
-    console.log("newRowSelectionModel :>> ", newRowSelectionModel)
-    setRowSelectionModel(newRowSelectionModel)
+  const handleRowClick = (params: GridRowParams) => {
+    setSelected(params.id)
   }
 
   return (
-    <Box id="grid-wrapper" py={2} display="flex">
+    <Box id="table-wrapper" py={2} display="flex">
       <DataGrid
-        rows={rows}
+        rows={applications}
         columns={columns}
         disableColumnMenu
-        rowSelectionModel={rowSelectionModel}
-        onRowSelectionModelChange={ChangeRowSelectionModel}
         columnVisibilityModel={columnVisibilityModel}
+        onRowClick={handleRowClick}
         sx={{
           border: 0,
           borderRadius: 8,
@@ -183,7 +184,7 @@ export default function ApplicationsTable() {
           },
         }}
       />
-      {showJobPage ? <JobPage /> : null}
+      {selected ? <JobPage applicationId={selected} closePage={handleCloseJobPage} /> : null}
     </Box>
   )
 }

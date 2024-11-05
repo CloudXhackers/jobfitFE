@@ -18,7 +18,7 @@ export default function ApplicationStatusMenu(
 
   const menuItemColor: MenuItemColor = {
     applied: "#78B7D0",
-    waiting: "#FABC3F",
+    waiting: "#f3d83c",
     inteviewing: "#FFAD60",
     offer: "#9CDBA6",
     declined: "#FF6969",
@@ -29,7 +29,7 @@ export default function ApplicationStatusMenu(
   }
 
   return (
-    <FormControl size="small" sx={{ verticalAlign: "middle" }}>
+    <FormControl size="small" sx={{ verticalAlign: "baseline" }}>
       <Select
         value={value}
         sx={{
@@ -37,7 +37,6 @@ export default function ApplicationStatusMenu(
           borderRadius: 8,
           fontSize: "1rem",
           width: 150,
-          lineHeight: 1,
         }}
         onChange={handleChange}
       >

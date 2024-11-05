@@ -2,7 +2,7 @@ import React from "react"
 import JobCard from "./JobCard"
 import { Grid } from "@mui/material"
 
-const jobs = [
+export const jobs = [
   {
     id: 1,
     title: "Software Engineer II",
