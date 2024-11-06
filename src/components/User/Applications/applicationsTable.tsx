@@ -10,7 +10,7 @@ import type {
 } from "@mui/x-data-grid"
 import { DataGrid } from "@mui/x-data-grid"
 import { useEffect, useState } from "react"
-import JobPage from "./applicationPage"
+import ApplicationPage from "./applicationPage"
 import ApplicationStatusMenu from "./applicationStatusMenu"
 
 const columns: GridColDef[] = [
@@ -140,7 +140,7 @@ export default function ApplicationsTable() {
   useEffect(() => {
     setApplications(rows)
   }, [])
-// resize table when an application is selected
+  // resize table when an application is selected
   useEffect(() => {
     selected
       ? setColumnVisibityModel({
@@ -154,7 +154,7 @@ export default function ApplicationsTable() {
   }, [selected])
 
   // close jobPage and resize dataGrid when JobPage closeIcon is clicked
-  const handleCloseJobPage = () => {
+  const handleClosePage = () => {
     setSelected(null)
   }
 
@@ -168,7 +168,7 @@ export default function ApplicationsTable() {
   }
 
   return (
-    <Box id="table-wrapper" py={2} display="flex">
+    <Box id="table-wrapper" py={2} display="flex" gap="1rem">
       <DataGrid
         rows={applications}
         columns={columns}
@@ -179,12 +179,15 @@ export default function ApplicationsTable() {
           border: 0,
           borderRadius: 8,
           bgcolor: "#EEE",
+          minWidth: "35%",
           ".MuiDataGrid-columnHeaderTitle": {
             fontWeight: "bold !important",
           },
         }}
       />
-      {selected ? <JobPage applicationId={selected} closePage={handleCloseJobPage} /> : null}
+      {selected ? (
+        <ApplicationPage applicationId={selected} closePage={handleClosePage} />
+      ) : null}
     </Box>
   )
 }

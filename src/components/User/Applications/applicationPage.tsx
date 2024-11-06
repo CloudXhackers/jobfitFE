@@ -1,4 +1,11 @@
-import { Card, CardContent, Box, Typography, IconButton, Button } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Box,
+  Typography,
+  IconButton,
+  Button,
+} from "@mui/material"
 import GoogleIcon from "../../../images/pngimg.com - google_PNG19635.png"
 import WorkIcon from "@mui/icons-material/Work"
 import PlaceIcon from "@mui/icons-material/Place"
@@ -9,25 +16,23 @@ import CreateIcon from "@mui/icons-material/Create"
 import ArrowRightIcon from "@mui/icons-material/ArrowRight"
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined"
 
-import { jobs } from "../Jobs/Jobs";
-import { BaseButton } from "../../../common/buttonStyles";
+import { jobs } from "../Jobs/Jobs"
 
 export default function ApplicationPage({ applicationId, closePage }) {
   const job = jobs[applicationId]
-  // select application by id 
+  // select application by id
   return (
-    <Box width={"60%"}>
-      <p>This is the Application Page for Application Id: {applicationId}</p>
-      <BaseButton  onClick={closePage}>Close</BaseButton>
+    <Box flexGrow={1} >
       <Card
         key={applicationId}
-        class="hover:shadow-lg hover:shadow-gray-600 shadow-gray-400 transition-shadow cursor-pointer rounded-3xl border-[#D8D8D7] border-solid border-[0.06rem] shadow-md w-[366px] h-[190px] overflow-hidden"
+        class="cursor-pointer rounded-3xl border-[#D8D8D7] border-solid border-[0.06rem] shadow-md h-[190px] overflow-hidden"
         onClick={() => {}}
       >
-        <CardContent class="pl-4 pt-3 h-[148px]">
+        <CardContent class="px-4 pt-3 h-[148px]">
           <Box class="flex-col flex">
-            <Box class="flex-row flex h-[45%]">
+            <Box class="flex-row flex" className="job-header">
               <Box
                 component="img"
                 src={GoogleIcon}
@@ -40,7 +45,7 @@ export default function ApplicationPage({ applicationId, closePage }) {
                   objectFit: "contain",
                 }}
               />
-              <Box class="flex-col flex pl-2 ">
+              <Box class="flex-col grow pl-2 ">
                 <Box class="flex-row flex gap-1">
                   <Typography class="font-semibold text-base text-gray-800">
                     {job.title}
@@ -67,8 +72,8 @@ export default function ApplicationPage({ applicationId, closePage }) {
                   </Typography>
                 </Box>
               </Box>
-              <IconButton class="h-1 pl-5">
-                <FavoriteBorderIcon fontSize="medium" color="disabled" />
+              <IconButton class="h-1 pl-5" onClick={closePage}>
+                <CancelOutlinedIcon fontSize="medium" color="disabled" />
               </IconButton>
             </Box>
             <Box class="flex-row flex h-[65%] ">
@@ -109,7 +114,11 @@ export default function ApplicationPage({ applicationId, closePage }) {
                   </Box>
                 </Box>
               </Box>
-              <Box class="bg-black w-[30%] rounded-tl-[1.5rem] bg-gradient-to-b from-[#4780FF] to-[#27468C]">
+
+              <Box
+                className="job-match"
+                class="bg-black w-[30%] rounded-tl-[1.5rem] bg-gradient-to-b from-[#4780FF] to-[#27468C]"
+              >
                 <Typography class="pt-2  font-medium text-white text-xs ">
                   Strong Match
                 </Typography>
@@ -164,7 +173,7 @@ export default function ApplicationPage({ applicationId, closePage }) {
           
           <Box class=" bg-red-light ">C</Box>*/}
         </CardContent>
-        <Box className="bg-[#D9D9D9] h-[42px] w-full flex px-5 items-center justify-between border-y-[0.1rem]  border-[#C1C1C0] ">
+        <Box className="bg-gradient-to-b from-[#4780FF] to-[#27468C] h-[42px] w-full flex px-5 items-center justify-between border-y-[0.1rem]  border-[#C1C1C0] ">
           <Button
             variant="contained"
             class="bg-white flex-row flex shadow-none  px-10 py-1 text-[0.6rem] border-[0.1rem] border-gray-400 rounded-full "
