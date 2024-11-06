@@ -1,12 +1,10 @@
 import { Box } from "@mui/material"
 import type {
   GridColDef,
-  GridRowSelectionModel,
-  GridRowsProp,
   GridColumnVisibilityModel,
-  GridRowParams,
-  MuiEvent,
   GridRowId,
+  GridRowParams,
+  GridRowsProp
 } from "@mui/x-data-grid"
 import { DataGrid } from "@mui/x-data-grid"
 import { useEffect, useState } from "react"
