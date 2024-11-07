@@ -5,6 +5,8 @@ import {
   Typography,
   IconButton,
   Button,
+  List,
+  ListItem,
 } from "@mui/material"
 import GoogleIcon from "../../../images/pngimg.com - google_PNG19635.png"
 import WorkIcon from "@mui/icons-material/Work"
@@ -19,20 +21,40 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined"
 
 import { jobs } from "../Jobs/Jobs"
+import ApplicationStatusMenu from "./applicationStatusMenu"
+import { ChipSection } from "../ProfileCard/ProfileCard"
 
-export default function ApplicationPage({ applicationId, closePage }) {
-  const job = jobs[applicationId]
-  // select application by id
+type Application = {
+  id: number
+  date: string
+  appNumber: string
+  jobId: number
+  jobRole: string
+  company: string
+  source: string
+  resume: string
+  status: string
+  match?: {
+    exp: number
+    skill: number
+    req: number
+    overall: number
+  }
+}
+
+export default function ApplicationPage({ row, closePage }) {
+  const job = jobs[row.jobId]
+  const application: Application = row
+
   return (
-    <Box flexGrow={1} >
+    <Box flexGrow={1}>
       <Card
-        key={applicationId}
-        class="cursor-pointer rounded-3xl border-[#D8D8D7] border-solid border-[0.06rem] shadow-md h-[190px] overflow-hidden"
-        onClick={() => {}}
+        key={application.id}
+        class="cursor-pointer rounded-3xl border-[#D8D8D7] border-solid border-[0.06rem] shadow-md bg-[#EEE] overflow-hidden"
       >
-        <CardContent class="px-4 pt-3 h-[148px]">
+        <CardContent class="px-4 pt-3">
           <Box class="flex-col flex">
-            <Box class="flex-row flex" className="job-header">
+            <Box class="flex-row flex " className="job-header">
               <Box
                 component="img"
                 src={GoogleIcon}
@@ -45,7 +67,7 @@ export default function ApplicationPage({ applicationId, closePage }) {
                   objectFit: "contain",
                 }}
               />
-              <Box class="flex-col grow pl-2 ">
+              <Box class="flex-col grow pl-2 my-2">
                 <Box class="flex-row flex gap-1">
                   <Typography class="font-semibold text-base text-gray-800">
                     {job.title}
@@ -72,137 +94,112 @@ export default function ApplicationPage({ applicationId, closePage }) {
                   </Typography>
                 </Box>
               </Box>
+              <ApplicationStatusMenu row={row} />
               <IconButton class="h-1 pl-5" onClick={closePage}>
                 <CancelOutlinedIcon fontSize="medium" color="disabled" />
               </IconButton>
             </Box>
-            <Box class="flex-row flex h-[65%] ">
-              <Box class="flex-row flex w-[70%] ">
-                <Box class="flex-row flex w-[55%] ">
-                  <Box class="flex-col flex w-[100%]">
-                    <Box class="flex-row flex pt-2 gap-1">
+            <Box class="rounded-3xl border-[#D8D8D7] border-solid border-[0.06rem] shadow-md bg-white px-5 py-2">
+              <Box class="flex-row flex">
+                <Box class="flex-col flex w-[100%]">
+                  <Box>
+                    <Box class="flex-row flex py-1 pt-2 gap-1">
                       <PlaceIcon fontSize="1rem" />
                       <Typography class="text-[0.6rem] text-gray-700">
                         {job.location}
                       </Typography>
                     </Box>
-                    <Box class="flex-row flex pt-1 gap-1">
+                    <Box class="flex-row flex py-1 gap-1">
                       {" "}
                       <PersonIcon fontSize="1rem" />
                       <Typography class="text-[0.6rem] text-gray-700">
                         {job.level}
                       </Typography>
                     </Box>
-                    <Box class="flex-row flex pt-1 pb-2 gap-1">
+                    <Box class="flex-row flex py-1 gap-1">
                       <HomeIcon fontSize="1rem" />
                       <Typography class="text-[0.6rem] text-gray-700">
                         {job.workType}
                       </Typography>{" "}
                     </Box>
+                    <Box class="flex-row flex py-1 gap-1">
+                      {" "}
+                      <ContactPageIcon fontSize="1rem" />
+                      <Typography class="text-[0.6rem] text-gray-700">
+                        {job.sponsorship}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
-                <Box class="flex-col flex w-[50%]">
-                  <Box class="flex-row flex pt-2 gap-1">
-                    {" "}
-                    <ContactPageIcon fontSize="1rem" />
-                    <Typography class="text-[0.6rem] text-gray-700">
-                      {job.sponsorship}
-                    </Typography>
-                  </Box>
-                  <Box class="flex-row flex pt-1 gap-1">
-                    <CreateIcon fontSize="1rem" />
-                  </Box>
+                <Box class="justify-items-end">
+                  <Typography>
+                    This is where the Skills ChipSection goes
+                  </Typography>
                 </Box>
               </Box>
-
-              <Box
-                className="job-match"
-                class="bg-black w-[30%] rounded-tl-[1.5rem] bg-gradient-to-b from-[#4780FF] to-[#27468C]"
-              >
-                <Typography class="pt-2  font-medium text-white text-xs ">
-                  Strong Match
-                </Typography>
-                <Typography class="pt-2 font-bold text-white text-3xl text-center">
-                  {job.matchPercentage}%
-                </Typography>
+              <Box>
+                <Box className="rounded-lg bg-gradient-to-b from-[#4780FF] to-[#27468C] h-[42px] w-11/12 flex mx-4 my-2 items-center justify-between justify-items-stretch border-y-[0.1rem]  border-[#C1C1C0] ">
+                  <Typography class="font-bold text-white text-xs w-1/4">
+                    Exp. Match:{" "}
+                    {application.match ? application.match.exp + "%" : "60%"}
+                  </Typography>
+                  <Typography class="font-bold text-white text-xs w-1/4">
+                    Skill Match:{" "}
+                    {application.match ? application.match.skill + "%" : "100%"}
+                  </Typography>
+                  <Typography class="font-bold text-white text-xs w-1/4">
+                    Req. Match:{" "}
+                    {application.match ? application.match.req + "%" : "90%"}
+                  </Typography>
+                  <Box className="bg-blue-800 rounded-e-lg h-full w-1/4 content-center">
+                    <Typography class="font-bold text-white text-xs">
+                      Overall: {job.matchPercentage}%
+                    </Typography>
+                  </Box>
+                </Box>
+                <Box class="text-justify">
+                  <Typography variant="h6">Job Description</Typography>
+                  <Typography>
+                    About Us: We are a dynamic team focused on delivering
+                    high-quality software solutions that drive value for our
+                    clients. Our team builds internal observation tools that
+                    foster a culture of quality across mobile and backend teams.
+                    We thrive on innovation, collaboration, and making a
+                    significant impact through our work. If you are passionate
+                    about solving complex challenges and working on tools that
+                    improve engineering practices, we'd like to meet you!
+                  </Typography>
+                  <Typography>
+                    Position Overview: We are looking for a Senior Software
+                    Developer with strong full-stack capabilities to join our
+                    growing team. As a key contributor, you will develop and
+                    maintain tools that provide observability into key metrics,
+                    helping our mobile and backend teams deliver with higher
+                    quality and reliability. You will work with modern
+                    technologies, primarily TypeScript, and leverage cloud
+                    development practices, especially on AWS, to build scalable,
+                    impactful solutions.
+                  </Typography>
+                  <Typography variant="h6">Requirements</Typography>
+                  <List>
+                    <ListItem>• 1-3 years of experience as a Full Stack Developer or similar role.</ListItem>
+                    <ListItem>• Strong proficiency in TypeScript, including backend and frontend development.</ListItem>
+                    <ListItem>• Experience with cloud platforms such as AWS or equivalent cloud-based development patterns.</ListItem>
+                    <ListItem>• Solid understanding of RESTful APIs, microservices, and cloud infrastructure.</ListItem>
+                    <ListItem>• Ability to write clean, maintainable, and well-tested code.</ListItem>
+                    <ListItem>• Strong problem-solving skills, attention to detail, and ability to work both independently and as part of a team.</ListItem>
+                    <ListItem>• Excellent communication skills.</ListItem>
+                  </List>
+                  
+                  <Typography variant="h6">Qualifications</Typography>
+                  <Typography variant="h6">Benefits</Typography>
+                  <Typography variant="h6">Responsibilities</Typography>
+                </Box>
               </Box>
             </Box>
           </Box>
-          {/*<div class="flex justify-between items-start">
-            <div class="flex gap-4">
-              <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                <HomeWorkIcon class="w-6 h-6 text-gray-500" />
-              </div>
-              <div>
-                <h3 class="font-semibold text-lg">{job.title}</h3>
-                <p class="text-gray-600">{job.company}</p>
-                <div class="flex items-center gap-2 text-sm text-gray-500 mt-1">
-                  <FmdGoodIcon class="w-4 h-4" />
-                  <span>{job.location}</span>
-                  <span>•</span>
-                  <AccessTimeIcon class="w-4 h-4" />
-                  <span>{job.posted}</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="text-right">
-                <div class="text-blue-600 font-semibold">
-                  {job.matchPercentage}% Match
-                </div>
-                <div class="text-sm text-gray-500">{job.salary}</div>
-              </div>
-              <Button variant="ghost" size="icon">
-                <FavoriteIcon class="w-5 h-5 text-gray-400" />
-              </Button>
-            </div>
-          </div>
-          <div class="mt-4 flex gap-2 flex-wrap">
-            <Badge variant="secondary">{job.type}</Badge>
-            <Badge variant="secondary">{job.sponsorship}</Badge>
-            {job.skills.map(skill => (
-              <Badge key={skill} variant="secondary">
-                {skill}
-              </Badge>
-            ))}
-          </div>
-          <div class="mt-4 flex justify-between">
-            <Button variant="outline">ResumePro</Button>
-            <Button>Auto-Apply</Button>
-          </div>
-          
-          <Box class=" bg-red-light ">C</Box>*/}
         </CardContent>
-        <Box className="bg-gradient-to-b from-[#4780FF] to-[#27468C] h-[42px] w-full flex px-5 items-center justify-between border-y-[0.1rem]  border-[#C1C1C0] ">
-          <Button
-            variant="contained"
-            class="bg-white flex-row flex shadow-none  px-10 py-1 text-[0.6rem] border-[0.1rem] border-gray-400 rounded-full "
-          >
-            <Typography class="font-bold text-black text-xs">
-              ResumePro
-            </Typography>
-            <ArrowRightIcon sx={{ width: "1rem", height: "1rem" }} />
-          </Button>
-          <Button
-            variant="contained"
-            class="bg-blue-500 flex-row flex  text-white px-10 py-1 text-[0.6rem] rounded-full"
-          >
-            <AutoAwesomeIcon
-              sx={{
-                width: "0.5rem",
-                height: "0.5rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            />
-            <Typography class="font-bold text-white text-xs">
-              Auto-Apply
-            </Typography>
-          </Button>
-        </Box>
       </Card>
     </Box>
   )
 }
-FavoriteBorderIcon

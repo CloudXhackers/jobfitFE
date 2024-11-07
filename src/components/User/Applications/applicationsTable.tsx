@@ -4,7 +4,7 @@ import type {
   GridColumnVisibilityModel,
   GridRowId,
   GridRowParams,
-  GridRowsProp
+  GridRowsProp,
 } from "@mui/x-data-grid"
 import { DataGrid } from "@mui/x-data-grid"
 import { useEffect, useState } from "react"
@@ -128,9 +128,21 @@ const rows: GridRowsProp = [
   },
 ]
 
+export type RowData =   {
+  id: number;
+  date: string;
+  appNumber: string;
+  jobId: number;
+  jobRole: string;
+  company: string;
+  source: string;
+  resume: string;
+  status: string;
+}
+
 export default function ApplicationsTable() {
-  const [applications, setApplications] = useState([])
-  const [selected, setSelected] = useState<GridRowId | null>(null)
+  const [applications, setApplications] = useState<RowData[] | []>([])
+  const [selected, setSelected] = useState< GridRowParams | null>(null)
   const [columnVisibilityModel, setColumnVisibityModel] =
     useState<GridColumnVisibilityModel>({})
 
@@ -162,7 +174,7 @@ export default function ApplicationsTable() {
   // show jobPage for seleceted job
 
   const handleRowClick = (params: GridRowParams) => {
-    setSelected(params.id)
+    setSelected(params.row)
   }
 
   return (
@@ -184,7 +196,7 @@ export default function ApplicationsTable() {
         }}
       />
       {selected ? (
-        <ApplicationPage applicationId={selected} closePage={handleClosePage} />
+        <ApplicationPage row={selected} closePage={handleClosePage} />
       ) : null}
     </Box>
   )
