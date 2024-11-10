@@ -56,7 +56,7 @@ const ChipSection = ({
         {items.map((item, index) =>
           editmode & editingflag ? (
             <Chip
-              key={index}
+              key={title + index}
               size="small"
               label={item}
               onDelete={() => onDelete(index)}
@@ -74,9 +74,8 @@ const ChipSection = ({
               }}
             />
           ) : (
-            <div className="py-0">
+            <div className="py-0" key={title + index}>
               <Chip
-                key={index}
                 label={item}
                 size="small"
                 className="text-xs font-semibold"
@@ -263,7 +262,7 @@ const ProfileCard = ({ userData, handleClose }) => {
           <div className="hidden md:block w-px h-full bg-white/50 mx-4"></div>
           <ChipSection
             title="Experience"
-            items={data.experience}
+            items={data.experience.map(position => position.title)}
             onAdd={handleAdd("experience")}
             onDelete={handleDelete("experience")}
             onEdit={handleEdit("experience")}

@@ -4,52 +4,7 @@ import { Typography } from "@mui/material"
 import Jobs from "../Jobs/Jobs"
 import ProfileCard from "../ProfileCard/ProfileCard"
 import ProfileCardSummarized from "../ProfileCard/ProfileCardSummarized"
-//import { userData } from "../../../features/dummyData/user"
-
-const userData = {
-  name: "Praneeth",
-  preferredJobs: [
-    "Data Scientist",
-    "Software Engineer",
-    "ML Engineer",
-    "Frontend/Backend",
-    "DevOps",
-    "Data Scientist",
-    "Software Engineer",
-    "ML Engineer",
-    "Frontend/Backend",
-    "DevOps",
-  ],
-  preferredJobType: ["Full-Time", "H1B Sponsor", "Hybrid"],
-  preferredLocations: [
-    "Bay Area, SF",
-    "New York",
-    "Dallas, TX",
-    "Seattle",
-    "Remote",
-  ],
-  preferredPay: ["$120K - $180K"],
-  skills: [
-    "Data Science",
-    "ML/AI",
-    "Python",
-    "SQL",
-    "R",
-    "ETL Pipelines",
-    "Optimization",
-    "Front-end",
-    "Back-end",
-    "Data Engineering",
-    "CI/CD",
-    "DevOps",
-    "UI/UX",
-  ],
-  experience: [
-    "Data Analyst (2 YR)",
-    "Data Scientist (1 Yr)",
-    "Software Engineer (1 Yr)",
-  ],
-}
+import { userData } from "../../../features/dummyData/user"
 
 const Home = () => {
   const [selectedJob, setSelectedJob] = useState(null)

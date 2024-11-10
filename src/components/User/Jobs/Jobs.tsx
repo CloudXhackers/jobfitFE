@@ -74,20 +74,6 @@ export const jobs = [
     workType: "Hybrid, Remote",
   },
   {
-    id: 5,
-    title: "Software Engineer II",
-    company: "TechCorp Inc.",
-    location: "Mountain View, CA",
-    type: "Full-Time",
-    salary: "$97.5K/yr - $206.8K/yr",
-    level: "Beginner Level",
-    sponsorship: "H1B Sponsor",
-    skills: ["Python", "React", "Unit Testing"],
-    posted: "2 weeks ago",
-    matchPercentage: 95,
-    workType: "Hybrid, Remote",
-  },
-  {
     id: 6,
     title: "Software Engineer II",
     company: "TechCorp Inc.",
@@ -115,6 +101,20 @@ export const jobs = [
     matchPercentage: 95,
     workType: "Hybrid, Remote",
   },
+  {
+    id: 8,
+    title: "Software Engineer II",
+    company: "TechCorp Inc.",
+    location: "Mountain View, CA",
+    type: "Full-Time",
+    salary: "$97.5K/yr - $206.8K/yr",
+    level: "Beginner Level",
+    sponsorship: "H1B Sponsor",
+    skills: ["Python", "React", "Unit Testing"],
+    posted: "2 weeks ago",
+    matchPercentage: 95,
+    workType: "Hybrid, Remote",
+  },
   // Add more jobs as needed
 ]
 
@@ -123,7 +123,7 @@ const Jobs = () => {
     <div className="space-y-8">
       <Grid container spacing={4}>
         {jobs.map(job => (
-          <JobCard key={job.id} job={job} />
+          <JobCard key={"job" + job.id} job={job} />
         ))}
       </Grid>
     </div>

@@ -22,7 +22,6 @@ const JobCard = ({ job }) => {
   return (
     <Grid item xs={12} sm={8} md={6} lg={4} xl={3}>
       <Card
-        key={job.id}
         class="hover:shadow-lg hover:shadow-gray-600 shadow-gray-400 transition-shadow cursor-pointer rounded-3xl border-[#D8D8D7] border-solid border-[0.06rem] shadow-md w-[366px] h-[190px] overflow-hidden"
         onClick={() => {}}
       >

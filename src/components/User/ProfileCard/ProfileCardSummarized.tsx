@@ -117,7 +117,6 @@ const ChipSection = ({ title, items = [] }) => {
 
 const ProfileCard = ({ userData, handleOpen }) => {
   const [data, setData] = useState(userData)
-
   return (
     <Card class="w-full overflow-hidden mt-2 mb-5 rounded-3xl">
       <div class="bg-gradient-to-r from-[#27468C] to-[#4780FF] text-white px-6 py-2">
@@ -135,7 +134,7 @@ const ProfileCard = ({ userData, handleOpen }) => {
             <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
             <ChipSection title="Your Skills" items={data.skills} />
             <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
-            <ChipSection title="Experience" items={data.experience} />
+            <ChipSection title="Experience" items={data.experience.map(position=>position.title)} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-[1fr,auto,1fr,auto,1fr] gap-1 items-start">
             <ChipSection title="Preferred Job" items={data.preferredJobs} />
