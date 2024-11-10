@@ -36,7 +36,7 @@ export default function ApplicationStatusMenu(
           backgroundColor: menuItemColor[value as keyof MenuItemColor],
           borderRadius: 8,
           fontSize: "1rem",
-          width: 150,
+          width: 130,
         }}
         onChange={handleChange}
       >

@@ -123,7 +123,7 @@ const Jobs = () => {
     <div className="space-y-8">
       <Grid container spacing={4}>
         {jobs.map(job => (
-          <JobCard job={job} />
+          <JobCard key={job.id} job={job} />
         ))}
       </Grid>
     </div>

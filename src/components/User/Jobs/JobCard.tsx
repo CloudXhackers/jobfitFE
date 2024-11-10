@@ -1,3 +1,12 @@
+import ArrowRightIcon from "@mui/icons-material/ArrowRight"
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
+import ContactPageIcon from "@mui/icons-material/ContactPage"
+import CreateIcon from "@mui/icons-material/Create"
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
+import HomeIcon from "@mui/icons-material/Home"
+import PersonIcon from "@mui/icons-material/Person"
+import PlaceIcon from "@mui/icons-material/Place"
+import WorkIcon from "@mui/icons-material/Work"
 import {
   Box,
   Card,
@@ -6,22 +15,8 @@ import {
   IconButton,
   Typography,
 } from "@mui/material"
-import React from "react"
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
-import FmdGoodIcon from "@mui/icons-material/FmdGood"
-import HomeWorkIcon from "@mui/icons-material/HomeWork"
-import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import Button from "@mui/material/Button"
-import Badge from "@mui/material/Badge"
 import GoogleIcon from "../../../images/pngimg.com - google_PNG19635.png"
-import WorkIcon from "@mui/icons-material/Work"
-import PlaceIcon from "@mui/icons-material/Place"
-import PersonIcon from "@mui/icons-material/Person"
-import HomeIcon from "@mui/icons-material/Home"
-import ContactPageIcon from "@mui/icons-material/ContactPage"
-import CreateIcon from "@mui/icons-material/Create"
-import ArrowRightIcon from "@mui/icons-material/ArrowRight"
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
 
 const JobCard = ({ job }) => {
   return (

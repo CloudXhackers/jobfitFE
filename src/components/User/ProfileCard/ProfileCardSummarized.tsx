@@ -1,24 +1,11 @@
-import React, { useEffect, useRef, useState } from "react"
-import {
-  Card,
-  CardContent,
-  Chip,
-  IconButton,
-  TextField,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  Typography,
-  Badge,
-  Tooltip,
-} from "@mui/material"
-import EditIcon from "@mui/icons-material/Edit"
-import AddIcon from "@mui/icons-material/Add"
-import CancelIcon from "@mui/icons-material/Cancel"
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp"
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown"
+import {
+  Badge,
+  Button,
+  Card,
+  CardContent
+} from "@mui/material"
+import { useEffect, useRef, useState } from "react"
 
 const useContainerWidth = () => {
   const containerRef = useRef(null)
@@ -138,12 +125,12 @@ const ProfileCard = ({ userData, handleOpen }) => {
           <div className="grid grid-cols-1 md:grid-cols-[1fr,auto,1fr,auto,1fr] gap-1 items-start">
             <div className="flex-row flex gap-3 align-middle items-center mb-4">
               <h2 className="text-3xl font-semibold">Hi, {data.name}</h2>
-              <p className="flex-row flex gap-1">
+              <div className="flex-row flex gap-1">
                 <p className="text-white text-sm font-thin">
                   - Summarizing your
                 </p>
                 <p className="text-white text-sm font-semibold">Requirements</p>
-              </p>
+              </div>
             </div>
             <div className="hidden md:block w-px h-full bg-white/50 mx-6"></div>
             <ChipSection title="Your Skills" items={data.skills} />

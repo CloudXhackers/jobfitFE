@@ -1,12 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit"
 //import type { PayloadAction } from '@reduxjs/toolkit';
 
 export type Job = {
-  jobId: string
+  id: number
   title: string
-  companyName: string
-  companyAddress: string
-  description: String
+  company: string
+  location: string
+  type: string
+  salary: string
+  level: string
+  skills: string[]
+  sponsorship?: string
+  posted: string
+  matchPercentage?: number
+  workType: string
+  description: string
+  requirements: string[]
+  qualifications: string[]
+  benefits?: string[]
+  responsibilities: string[]
 }
 
 export type Jobs = Job[]
@@ -19,12 +31,14 @@ export type JobsState = {
 
 const initialState: JobsState = {
   jobs: [],
-  loading: 'idle',
-  error: null
+  loading: "idle",
+  error: null,
 }
 
 export const jobsSlice = createSlice({
-  name: 'jobs', initialState, reducers: {}
+  name: "jobs",
+  initialState,
+  reducers: {},
 })
 
 export default jobsSlice.reducer

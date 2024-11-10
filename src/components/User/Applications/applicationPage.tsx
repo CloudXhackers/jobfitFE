@@ -1,28 +1,22 @@
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined"
+import ContactPageIcon from "@mui/icons-material/ContactPage"
+import HomeIcon from "@mui/icons-material/Home"
+import PersonIcon from "@mui/icons-material/Person"
+import PlaceIcon from "@mui/icons-material/Place"
+import WorkIcon from "@mui/icons-material/Work"
 import {
+  Box,
   Card,
   CardContent,
-  Box,
-  Typography,
   IconButton,
-  Button,
   List,
   ListItem,
+  Typography
 } from "@mui/material"
 import GoogleIcon from "../../../images/pngimg.com - google_PNG19635.png"
-import WorkIcon from "@mui/icons-material/Work"
-import PlaceIcon from "@mui/icons-material/Place"
-import PersonIcon from "@mui/icons-material/Person"
-import HomeIcon from "@mui/icons-material/Home"
-import ContactPageIcon from "@mui/icons-material/ContactPage"
-import CreateIcon from "@mui/icons-material/Create"
-import ArrowRightIcon from "@mui/icons-material/ArrowRight"
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
-import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined"
 
 import { jobs } from "../Jobs/Jobs"
 import ApplicationStatusMenu from "./applicationStatusMenu"
-import { ChipSection } from "../ProfileCard/ProfileCard"
 
 type Application = {
   id: number

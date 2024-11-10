@@ -4,6 +4,7 @@ import { Typography } from "@mui/material"
 import Jobs from "../Jobs/Jobs"
 import ProfileCard from "../ProfileCard/ProfileCard"
 import ProfileCardSummarized from "../ProfileCard/ProfileCardSummarized"
+//import { userData } from "../../../features/dummyData/user"
 
 const userData = {
   name: "Praneeth",
