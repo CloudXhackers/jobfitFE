@@ -1,5 +1,5 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material"
-import ApplicationsList from "./applicationsTable"
+import ApplicationsTable from "./applicationsTable"
 
 export default function ApplicationTrackerPage() {
   const filters = [
@@ -30,7 +30,7 @@ export default function ApplicationTrackerPage() {
           </Button>
         ))}
       </Box>
-      <ApplicationsList/>
+      <ApplicationsTable/>
     </Container>
   )
 }

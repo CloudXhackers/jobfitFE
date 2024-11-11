@@ -2,12 +2,13 @@ import { Box } from "@mui/material"
 import type {
   GridColDef,
   GridColumnVisibilityModel,
-  GridRowId,
-  GridRowParams,
-  GridRowsProp,
+  GridRenderCellParams,
+  GridRowParams
 } from "@mui/x-data-grid"
 import { DataGrid } from "@mui/x-data-grid"
 import { useEffect, useState } from "react"
+import type { Application } from "../../../features/dummyData/applications"
+import { applications as applicationsData } from "../../../features/dummyData/applications"
 import ApplicationPage from "./applicationPage"
 import ApplicationStatusMenu from "./applicationStatusMenu"
 
@@ -66,89 +67,19 @@ const columns: GridColDef[] = [
     headerAlign: "center",
     headerClassName: "text-white font-semi-bold text-sm",
     align: "center",
-    renderCell: ApplicationStatusMenu,
+    renderCell: (params: GridRenderCellParams) => ApplicationStatusMenu({ applicationStatus: params.row.status }),
   },
 ]
-
-const rows: GridRowsProp = [
-  {
-    id: 1,
-    date: "2024-10-26",
-    appNumber: "69",
-    jobId: 1,
-    jobRole: "Software Engineer",
-    company: "Google",
-    source: "LinkedIn",
-    resume: "SDEResumeV1.pdf",
-    status: "applied",
-  },
-  {
-    id: 2,
-    date: "2024-10-26",
-    appNumber: "70",
-    jobId: 2,
-    jobRole: "Software Engineer",
-    company: "Google",
-    source: "LinkedIn",
-    resume: "SDEResumeV1.pdf",
-    status: "waiting",
-  },
-  {
-    id: 3,
-    date: "2024-10-26",
-    appNumber: "80",
-    jobId: 3,
-    jobRole: "Software Engineer",
-    company: "Google",
-    source: "LinkedIn",
-    resume: "SDEResumeV1.pdf",
-    status: "inteviewing",
-  },
-  {
-    id: 4,
-    date: "2024-10-26",
-    appNumber: "90",
-    jobId: 4,
-    jobRole: "Software Engineer",
-    company: "Google",
-    source: "LinkedIn",
-    resume: "SDEResumeV1.pdf",
-    status: "declined",
-  },
-  {
-    id: 5,
-    date: "2024-10-26",
-    appNumber: "90",
-    jobId: 5,
-    jobRole: "Software Engineer",
-    company: "Google",
-    source: "LinkedIn",
-    resume: "SDEResumeV1.pdf",
-    status: "offer",
-  },
-]
-
-export type RowData =   {
-  id: number;
-  date: string;
-  appNumber: string;
-  jobId: number;
-  jobRole: string;
-  company: string;
-  source: string;
-  resume: string;
-  status: string;
-}
 
 export default function ApplicationsTable() {
-  const [applications, setApplications] = useState<RowData[] | []>([])
-  const [selected, setSelected] = useState< GridRowParams | null>(null)
+  const [applications, setApplications] = useState<Application[] | []>([])
+  const [selected, setSelected] = useState< Application | null>(null)
   const [columnVisibilityModel, setColumnVisibityModel] =
     useState<GridColumnVisibilityModel>({})
 
   // fetch data on initialization
   useEffect(() => {
-    setApplications(rows)
+    setApplications(applicationsData)
   }, [])
   // resize table when an application is selected
   useEffect(() => {
@@ -174,7 +105,8 @@ export default function ApplicationsTable() {
   // show jobPage for seleceted job
 
   const handleRowClick = (params: GridRowParams) => {
-    setSelected(params.row)
+    setSelected(applications[params.row.id])
+    console.log('inside handleRowClick - params.row :>> ', params.row);
   }
 
   return (
@@ -196,7 +128,7 @@ export default function ApplicationsTable() {
         }}
       />
       {selected ? (
-        <ApplicationPage row={selected} closePage={handleClosePage} />
+        <ApplicationPage application={selected} closePage={handleClosePage} />
       ) : null}
     </Box>
   )

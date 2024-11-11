@@ -1,13 +1,9 @@
-import type { SelectChangeEvent} from "@mui/material";
-import { FormControl, Select, MenuItem } from "@mui/material"
-import type { GridRenderCellParams, GridRowParams } from "@mui/x-data-grid"
-import { useState } from "react";
+import type { SelectChangeEvent } from "@mui/material"
+import { FormControl, MenuItem, Select } from "@mui/material"
+import { useState } from "react"
 
-export default function ApplicationStatusMenu(
-  params: GridRenderCellParams<String>
-) {
-
-  const [value, setValue] = useState(params.value)
+export default function ApplicationStatusMenu({ applicationStatus }) {
+  const [status, setStatus] = useState(applicationStatus)
   type MenuItemColor = {
     applied: string
     waiting: string
@@ -25,15 +21,15 @@ export default function ApplicationStatusMenu(
   }
 
   const handleChange = (e: SelectChangeEvent) => {
-    setValue(e.target.value as string)
+    setStatus(e.target.value as string)
   }
 
   return (
     <FormControl size="small" sx={{ verticalAlign: "baseline" }}>
       <Select
-        value={value}
+        value={status}
         sx={{
-          backgroundColor: menuItemColor[value as keyof MenuItemColor],
+          backgroundColor: menuItemColor[status as keyof MenuItemColor],
           borderRadius: 8,
           fontSize: "1rem",
           width: 130,

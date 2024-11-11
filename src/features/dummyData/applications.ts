@@ -8,7 +8,7 @@ export type Application = {
   source: string
   resume?: string
   coverLetter?: string
-  documents?: string
+  documents?: string[]
   status: string
   matchPercentage?: {
     exp: number
@@ -28,7 +28,15 @@ export const applications: Application[] = [
     company: "Google",
     source: "LinkedIn",
     resume: "SDEResumeV1.pdf",
+    coverLetter: "SDECoverLetterV1.pdf",
+    documents: ["additionalDocument1.pdf"],
     status: "applied",
+    matchPercentage: {
+      exp: 80,
+      skill: 100,
+      req: 100,
+      overall: 95,
+    },
   },
   {
     id: 2,
@@ -39,6 +47,14 @@ export const applications: Application[] = [
     company: "Google",
     source: "LinkedIn",
     resume: "SDEResumeV1.pdf",
+    coverLetter: "SDECoverLetterV1.pdf",
+    documents: ["additionalDocument1.pdf"],
+    matchPercentage: {
+      exp: 80,
+      skill: 100,
+      req: 100,
+      overall: 95,
+    },
     status: "waiting",
   },
   {
@@ -50,6 +66,14 @@ export const applications: Application[] = [
     company: "Google",
     source: "LinkedIn",
     resume: "SDEResumeV1.pdf",
+    coverLetter: "SDECoverLetterV1.pdf",
+    documents: ["additionalDocument1.pdf"],
+    matchPercentage: {
+      exp: 80,
+      skill: 100,
+      req: 100,
+      overall: 95,
+    },
     status: "inteviewing",
   },
   {
@@ -61,6 +85,14 @@ export const applications: Application[] = [
     company: "Google",
     source: "LinkedIn",
     resume: "SDEResumeV1.pdf",
+    coverLetter: "SDECoverLetterV1.pdf",
+    documents: ["additionalDocument1.pdf"],
+    matchPercentage: {
+      exp: 80,
+      skill: 100,
+      req: 100,
+      overall: 95,
+    },
     status: "declined",
   },
   {
@@ -72,6 +104,14 @@ export const applications: Application[] = [
     company: "Google",
     source: "LinkedIn",
     resume: "SDEResumeV1.pdf",
+    coverLetter: "SDECoverLetterV1.pdf",
+    documents: ["additionalDocument1.pdf"],
+    matchPercentage: {
+      exp: 80,
+      skill: 100,
+      req: 100,
+      overall: 95,
+    },
     status: "offer",
   },
 ]
