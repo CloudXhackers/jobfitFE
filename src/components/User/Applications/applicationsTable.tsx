@@ -77,11 +77,10 @@ export default function ApplicationsTable() {
   const [columnVisibilityModel, setColumnVisibityModel] =
     useState<GridColumnVisibilityModel>({})
 
-  // fetch data on initialization
   useEffect(() => {
     setApplications(applicationsData)
   }, [])
-  // resize table when an application is selected
+
   useEffect(() => {
     selected
       ? setColumnVisibityModel({
@@ -94,15 +93,9 @@ export default function ApplicationsTable() {
         })
   }, [selected])
 
-  // close jobPage and resize dataGrid when JobPage closeIcon is clicked
   const handleClosePage = () => {
     setSelected(null)
   }
-
-  // fires when user clicks on a new row
-  // get jobData - pass down jobId in props to be fetched from JobPage
-  // resize dataGrid
-  // show jobPage for seleceted job
 
   const handleRowClick = (params: GridRowParams) => {
     setSelected(applications[params.row.id])
