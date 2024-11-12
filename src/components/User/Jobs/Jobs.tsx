@@ -1,9 +1,12 @@
 import React from "react"
 import JobCard from "./JobCard"
 import { Grid } from "@mui/material"
-import { jobs } from "../../../features/dummyData/jobs"
+import { useAppSelector } from "../../../app/hooks"
+
 
 const Jobs = () => {
+  const jobs = useAppSelector(state=>state.jobs.jobs)
+
   return (
     <div className="space-y-8">
       <Grid container spacing={4}>

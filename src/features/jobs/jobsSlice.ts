@@ -1,41 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit"
-//import type { PayloadAction } from '@reduxjs/toolkit';
-
-export type Job = {
-  id: number
-  title: string
-  company: string
-  location: string
-  type: string
-  salary: string
-  level: string
-  skills: string[]
-  sponsorship?: string
-  posted: string
-  matchPercentage?: number
-  workType: string
-  description: string
-  requirements: string[]
-  qualifications: string[]
-  benefits?: string[]
-  responsibilities: string[]
-}
-
-export type Jobs = Job[]
+import type { Job } from "../dummyData/jobs";
+import { jobs } from "../dummyData/jobs"
+import { createAppSlice } from "../../app/createAppSlice";
 
 export type JobsState = {
-  jobs: Jobs | []
+  jobs: Job[]
   loading: "idle" | "pending" | "succeeded" | "failed"
   error: string | undefined | null
 }
 
 const initialState: JobsState = {
-  jobs: [],
+  jobs: jobs,
   loading: "idle",
   error: null,
 }
 
-export const jobsSlice = createSlice({
+export const jobsSlice = createAppSlice({
   name: "jobs",
   initialState,
   reducers: {},

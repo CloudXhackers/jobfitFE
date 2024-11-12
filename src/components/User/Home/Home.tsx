@@ -4,12 +4,13 @@ import { Typography } from "@mui/material"
 import Jobs from "../Jobs/Jobs"
 import ProfileCard from "../ProfileCard/ProfileCard"
 import ProfileCardSummarized from "../ProfileCard/ProfileCardSummarized"
-import { userData } from "../../../features/dummyData/user"
+import { useAppSelector } from "../../../app/hooks"
 
 const Home = () => {
   const [selectedJob, setSelectedJob] = useState(null)
   const [profileCardOpen, setProfileCardOpen] = useState(false)
   const time = "9:00 AM PST"
+  const user = useAppSelector(state => state.user.user)
 
   const handleCard = () => {
     setProfileCardOpen(prev => !prev)
@@ -28,9 +29,9 @@ const Home = () => {
       </div>
 
       {profileCardOpen ? (
-        <ProfileCard userData={userData} handleClose={handleCard} />
+        <ProfileCard userData={user} handleClose={handleCard} />
       ) : (
-        <ProfileCardSummarized userData={userData} handleOpen={handleCard} />
+        <ProfileCardSummarized userData={user} handleOpen={handleCard} />
       )}
 
       <Jobs />

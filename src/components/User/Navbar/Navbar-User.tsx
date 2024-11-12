@@ -13,7 +13,8 @@ import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
-import { StartButton } from "../../../common/buttonStyles"
+import { StartButton } from "../../common/buttonStyles"
+import { isAuthenticated } from "../../../Routers/Routers"
 
 const pages = [
   "Application Tracker",
@@ -48,7 +49,10 @@ export default function UserNavBar() {
     setAnchorElNav(null)
   }
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (e: React.MouseEvent<HTMLElement>) => {
+    if(e.target.innerHTML === "Logout") {
+      console.log("log out user");
+    }
     setAnchorElUser(null)
   }
 

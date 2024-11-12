@@ -7,8 +7,8 @@ import type {
 } from "@mui/x-data-grid"
 import { DataGrid } from "@mui/x-data-grid"
 import { useEffect, useState } from "react"
+import { useAppSelector } from "../../../app/hooks"
 import type { Application } from "../../../features/dummyData/applications"
-import { applications as applicationsData } from "../../../features/dummyData/applications"
 import ApplicationPage from "./applicationPage"
 import ApplicationStatusMenu from "./applicationStatusMenu"
 
@@ -72,14 +72,11 @@ const columns: GridColDef[] = [
 ]
 
 export default function ApplicationsTable() {
-  const [applications, setApplications] = useState<Application[] | []>([])
   const [selected, setSelected] = useState< Application | null>(null)
   const [columnVisibilityModel, setColumnVisibityModel] =
     useState<GridColumnVisibilityModel>({})
 
-  useEffect(() => {
-    setApplications(applicationsData)
-  }, [])
+  const applications = useAppSelector(state=>state.applications.applications)
 
   useEffect(() => {
     selected
