@@ -18,14 +18,14 @@ import {
 } from "@mui/material"
 import Container from "@mui/material/Container"
 import { Link as RouterLink } from "react-router-dom"
-import { BaseButton, StartButton } from "../common/buttonStyles"
-import LeftImage from "../../images/BgHomePage.jpeg"
-import RightImage from "../../images/ai-research-scientist-abstract-concept-600nw-2368588939.webp"
-import ResumeIcon from "../../images/container-md (1).png"
-import LockIcon from "../../images/container-md (2).png"
-import LoveIcon from "../../images/container-md (3).png"
-import JobSearchIcon from "../../images/container-md.png"
-import TypeImg from "../../images/m_image.png"
+import { BaseButton, StartButton } from "./buttonStyles"
+import LeftImage from "../images/BgHomePage.jpeg"
+import RightImage from "../images/ai-research-scientist-abstract-concept-600nw-2368588939.webp"
+import ResumeIcon from "../images/container-md (1).png"
+import LockIcon from "../images/container-md (2).png"
+import LoveIcon from "../images/container-md (3).png"
+import JobSearchIcon from "../images/container-md.png"
+import TypeImg from "../images/m_image.png"
 const footerItems = [
   {
     title: "Features",

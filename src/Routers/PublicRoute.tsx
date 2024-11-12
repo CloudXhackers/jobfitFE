@@ -1,8 +1,8 @@
 import React from "react"
-import NavBar from "../components/Public/Navbar-Public"
+import NavBar from "../publicPages/Navbar-Public"
 import { Route, Routes } from "react-router-dom"
-import HeroPage from "../components/Public/heroPage"
-import OAuthSignInPage from "../components/Public/OAuthSignInPage"
+import HeroPage from "../publicPages/heroPage"
+import OAuthSignInPage from "../publicPages/OAuthSignInPage"
 
 const PublicRoute = () => {
   return (

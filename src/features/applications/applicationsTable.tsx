@@ -3,12 +3,12 @@ import type {
   GridColDef,
   GridColumnVisibilityModel,
   GridRenderCellParams,
-  GridRowParams
+  GridRowParams,
 } from "@mui/x-data-grid"
 import { DataGrid } from "@mui/x-data-grid"
 import { useEffect, useState } from "react"
-import { useAppSelector } from "../../../app/hooks"
-import type { Application } from "../../../features/dummyData/applications"
+import { useAppSelector } from "../../app/hooks"
+import type { Application } from "./applicationsData"
 import ApplicationPage from "./applicationPage"
 import ApplicationStatusMenu from "./applicationStatusMenu"
 
@@ -67,16 +67,17 @@ const columns: GridColDef[] = [
     headerAlign: "center",
     headerClassName: "text-white font-semi-bold text-sm",
     align: "center",
-    renderCell: (params: GridRenderCellParams) => ApplicationStatusMenu({ applicationStatus: params.row.status }),
+    renderCell: (params: GridRenderCellParams) =>
+      ApplicationStatusMenu({ applicationStatus: params.row.status }),
   },
 ]
 
 export default function ApplicationsTable() {
-  const [selected, setSelected] = useState< Application | null>(null)
+  const [selected, setSelected] = useState<Application | null>(null)
   const [columnVisibilityModel, setColumnVisibityModel] =
     useState<GridColumnVisibilityModel>({})
 
-  const applications = useAppSelector(state=>state.applications.applications)
+  const applications = useAppSelector(state => state.applications.applications)
 
   useEffect(() => {
     selected
@@ -96,7 +97,7 @@ export default function ApplicationsTable() {
 
   const handleRowClick = (params: GridRowParams) => {
     setSelected(applications[params.row.id])
-    console.log('inside handleRowClick - params.row :>> ', params.row);
+    console.log("inside handleRowClick - params.row :>> ", params.row)
   }
 
   return (

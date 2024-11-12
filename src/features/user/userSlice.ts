@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { userData } from "../dummyData/user"
+import { userData } from "./userDats"
 import { createAppSlice } from "../../app/createAppSlice"
 
 export type userState = {

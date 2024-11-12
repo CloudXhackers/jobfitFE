@@ -1,7 +1,7 @@
 import React from "react"
 import JobCard from "./JobCard"
 import { Grid } from "@mui/material"
-import { useAppSelector } from "../../../app/hooks"
+import { useAppSelector } from "../../app/hooks"
 
 
 const Jobs = () => {

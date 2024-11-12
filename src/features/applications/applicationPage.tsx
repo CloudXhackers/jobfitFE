@@ -14,7 +14,7 @@ import {
   Typography,
 } from "@mui/material"
 
-import { jobs } from "../../../features/dummyData/jobs"
+import { jobs } from "../jobs/jobsData"
 import ApplicationStatusMenu from "./applicationStatusMenu"
 
 export default function ApplicationPage({ application, closePage }) {
@@ -109,7 +109,9 @@ export default function ApplicationPage({ application, closePage }) {
                   <Typography>
                     This is where the Skills ChipSection goes
                   </Typography>
-                  <Typography>Application number: {application.appNumber}</Typography>
+                  <Typography>
+                    Application number: {application.appNumber}
+                  </Typography>
                 </Box>
               </Box>
               <Box>

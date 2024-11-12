@@ -1,5 +1,5 @@
 import { createAppSlice } from "../../app/createAppSlice"
-import { applications, type Application } from "../dummyData/applications"
+import { applications, type Application } from "./applicationsData"
 
 export type ApplicationsState = {
   applications: Application[]
@@ -9,14 +9,14 @@ export type ApplicationsState = {
 
 const initialState: ApplicationsState = {
   applications: applications,
-  loading: 'idle',
-  error: null
+  loading: "idle",
+  error: null,
 }
 
 export const applicationsSlice = createAppSlice({
   name: "applications",
   initialState,
-  reducers: {}
+  reducers: {},
 })
 
 export default applicationsSlice.reducer

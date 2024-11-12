@@ -1,10 +1,10 @@
 import { useState } from "react"
 
 import { Typography } from "@mui/material"
-import Jobs from "../Jobs/Jobs"
-import ProfileCard from "../ProfileCard/ProfileCard"
-import ProfileCardSummarized from "../ProfileCard/ProfileCardSummarized"
-import { useAppSelector } from "../../../app/hooks"
+import Jobs from "../jobs/Jobs"
+import ProfileCard from "./ProfileCard"
+import ProfileCardSummarized from "./ProfileCardSummarized"
+import { useAppSelector } from "../../app/hooks"
 
 const Home = () => {
   const [selectedJob, setSelectedJob] = useState(null)

@@ -16,7 +16,6 @@ import {
   Typography,
 } from "@mui/material"
 import Button from "@mui/material/Button"
-import GoogleIcon from "../../../images/pngimg.com - google_PNG19635.png"
 
 const JobCard = ({ job }) => {
   return (
@@ -30,7 +29,7 @@ const JobCard = ({ job }) => {
             <Box class="flex-row flex h-[45%]">
               <Box
                 component="img"
-                src={GoogleIcon}
+                src={job.companyLogo}
                 sx={{
                   width: "65px", // Adjust width as needed
                   height: "65px",

@@ -1,6 +1,6 @@
-import type { Job } from "../dummyData/jobs";
-import { jobs } from "../dummyData/jobs"
-import { createAppSlice } from "../../app/createAppSlice";
+import type { Job } from "./jobsData"
+import { jobs } from "./jobsData"
+import { createAppSlice } from "../../app/createAppSlice"
 
 export type JobsState = {
   jobs: Job[]

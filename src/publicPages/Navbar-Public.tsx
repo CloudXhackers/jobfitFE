@@ -7,7 +7,7 @@ import Container from "@mui/material/Container"
 import Toolbar from "@mui/material/Toolbar"
 import Typography from "@mui/material/Typography"
 import * as React from "react"
-import { StartButton } from "../common/buttonStyles"
+import { StartButton } from "./buttonStyles"
 
 const pages = [
   "Application Tracker",
