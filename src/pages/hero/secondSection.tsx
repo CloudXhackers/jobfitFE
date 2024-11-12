@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material"
-import { BaseButton } from "../../common/buttonStyles"
-import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
+import { BaseButton } from "../../components/common/buttonStyles"
+import PlayCircleOutlinedIcon from "@mui/icons-material/PlayCircleOutlined"
 
 export default function SecondSection() {
   return (
@@ -19,7 +19,10 @@ export default function SecondSection() {
             that simplifies job searching, resume crafting, and cover letter
             writing.
           </Typography>
-          <BaseButton><PlayCircleOutlinedIcon sx={{ pr: 1 }}/>Watch Our Demo Video</BaseButton>
+          <BaseButton>
+            <PlayCircleOutlinedIcon sx={{ pr: 1 }} />
+            Watch Our Demo Video
+          </BaseButton>
         </Box>
         <Box
           component="img"

@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material"
-import { BaseButton, StartButton } from "../../common/buttonStyles"
+import { BaseButton, StartButton } from "../../components/common/buttonStyles"
 
 export default function MainSection() {
   return (
@@ -29,7 +29,14 @@ export default function MainSection() {
         Streamline your job search, enhance your resume, and apply effortlessly
         with our powerful tools.
       </Typography>
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", py: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          py: 2,
+        }}
+      >
         <Box
           component="img"
           src="/src/assets/images/BgHomePage 1.png"
