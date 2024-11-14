@@ -1,5 +1,5 @@
 export type Job = {
-  id: number
+  id: number | string
   title: string
   company: string
   companyLogo?: string

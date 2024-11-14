@@ -14,11 +14,19 @@ import {
   Typography,
 } from "@mui/material"
 
-import { jobs } from "../jobs/jobsData"
 import ApplicationStatusMenu from "./applicationStatusMenu"
+import { useAppSelector } from "../../app/hooks"
+import { selectApplicationById } from "./applicationsSlice"
+import { selectJobById } from "../jobs/jobsSlice"
 
-export default function ApplicationPage({ application, closePage }) {
-  const job = jobs[application.jobId]
+type ApplicationPageProps = {
+  applicationId: string | number
+  closePage: () => void
+}
+
+export default function ApplicationPage({ applicationId, closePage }: ApplicationPageProps) {
+  const application = useAppSelector((state) => selectApplicationById(state, applicationId))
+  const job = useAppSelector((state)=>selectJobById(state, application.jobId))
 
   return (
     <Box flexGrow={1}>

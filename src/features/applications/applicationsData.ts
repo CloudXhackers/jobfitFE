@@ -1,5 +1,5 @@
 export type Application = {
-  id: number
+  id: number | string
   date: string
   appNumber: string
   jobId: number

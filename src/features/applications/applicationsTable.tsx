@@ -8,9 +8,9 @@ import type {
 import { DataGrid } from "@mui/x-data-grid"
 import { useEffect, useState } from "react"
 import { useAppSelector } from "../../app/hooks"
-import type { Application } from "./applicationsData"
 import ApplicationPage from "./applicationPage"
 import ApplicationStatusMenu from "./applicationStatusMenu"
+import { selectAllApplications } from "./applicationsSlice"
 
 const columns: GridColDef[] = [
   {
@@ -73,11 +73,13 @@ const columns: GridColDef[] = [
 ]
 
 export default function ApplicationsTable() {
-  const [selected, setSelected] = useState<Application | null>(null)
+  const [selected, setSelected] = useState<number | null>(null)
   const [columnVisibilityModel, setColumnVisibityModel] =
     useState<GridColumnVisibilityModel>({})
 
-  const applications = useAppSelector(state => state.applications.applications)
+  const applications = useAppSelector(selectAllApplications, {
+    devModeChecks: { stabilityCheck: "never" },
+  })
 
   useEffect(() => {
     selected
@@ -96,8 +98,7 @@ export default function ApplicationsTable() {
   }
 
   const handleRowClick = (params: GridRowParams) => {
-    setSelected(applications[params.row.id])
-    console.log("inside handleRowClick - params.row :>> ", params.row)
+    setSelected(params.row.id)
   }
 
   return (
@@ -118,9 +119,9 @@ export default function ApplicationsTable() {
           },
         }}
       />
-      {selected ? (
-        <ApplicationPage application={selected} closePage={handleClosePage} />
-      ) : null}
+      {selected && (
+        <ApplicationPage applicationId={selected} closePage={handleClosePage} />
+      )}
     </Box>
   )
 }

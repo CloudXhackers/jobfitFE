@@ -2,10 +2,11 @@ import React from "react"
 import JobCard from "./JobCard"
 import { Grid } from "@mui/material"
 import { useAppSelector } from "../../app/hooks"
+import { selectAllJobs } from "./jobsSlice"
 
 
 const Jobs = () => {
-  const jobs = useAppSelector(state=>state.jobs.jobs)
+  const jobs = useAppSelector(selectAllJobs, { devModeChecks: { stabilityCheck: "never" } })
 
   return (
     <div className="space-y-8">
